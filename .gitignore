@@ -27,3 +27,8 @@ dist
 *.vercel
 *.dist
 .env
+.vercel
+.env*.local
+
+dist
+./dist
