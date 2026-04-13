@@ -257,24 +257,6 @@ const linksClass = "w-fit font-bold";
     </div>
     <div>
       <h2>Favourites</h2>
-      <h3>Albums</h3>
-      <div class="grid grid-cols-3 sm:grid-cols-4 gap-x-6 gap-y-6 not-prose">
-        {
-          albums.map((album) => (
-            <a
-              href={`https://open.spotify.com/album/${album.id}`}
-              target="_blank"
-            >
-              <Image
-                alt={album.data.title}
-                src={`https://i.scdn.co/image/${album.data.imageID}`}
-                width={640}
-                height={640}
-              />
-            </a>
-          ))
-        }
-      </div>
       <h3>Books</h3>
       <div class="grid grid-cols-3 sm:grid-cols-4 gap-x-6 gap-y-6 not-prose">
         {
@@ -288,6 +270,24 @@ const linksClass = "w-fit font-bold";
                 src={`https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1`}
                 width={624}
                 height={320}
+              />
+            </a>
+          ))
+        }
+      </div>
+      <h3>Albums</h3>
+      <div class="grid grid-cols-3 sm:grid-cols-4 gap-x-6 gap-y-6 not-prose">
+        {
+          albums.map((album) => (
+            <a
+              href={`https://open.spotify.com/album/${album.id}`}
+              target="_blank"
+            >
+              <Image
+                alt={album.data.title}
+                src={`https://i.scdn.co/image/${album.data.imageID}`}
+                width={640}
+                height={640}
               />
             </a>
           ))
