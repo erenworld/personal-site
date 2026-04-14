@@ -50,7 +50,7 @@ const fullTitle = title ? `${title} - ${baseTitle}` : baseTitle;
     <meta name="twitter:image" content={image} />
     <Font cssVariable="--font-alegreya" preload />
   </head>
-  <body class="max-w-2xl py-8 px-6">
+  <body class="max-w-2xl mx-auto py-8 px-6">
     <Nav title={post ? title : undefined} />
     <slot />
   </body>
