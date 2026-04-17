@@ -23,7 +23,7 @@ const { Content } = await render(book);
       <div class="flex flex-col gap-1 text-sm sm:text-base text-neutral-700">
         <span
           aria-label={`${book.data.rating} out of 5 stars`}
-          class="flex gap-0.5 text-slate-800"
+          class="bookshelf-stars"
         >
           {Array.from({ length: 5 }, (_, index) => (
             <span class={index < book.data.rating ? "text-slate-800" : "text-slate-300"}>

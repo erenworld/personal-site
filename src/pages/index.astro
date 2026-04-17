@@ -23,7 +23,7 @@ const linksClass = "w-fit font-bold";
   </div>
   <Prose>
     <p>
-      I'm 21 years old, originally from Türkiye, born in France, and I've spent
+      I'm 22 years old, originally from Türkiye, born in France, and I've spent
       most of my life between Nancy and Afyon.
     </p>
     <p>
@@ -256,27 +256,21 @@ const linksClass = "w-fit font-bold";
     </div>
     <div>
       <h2>Bookshelf</h2>
-      <div class="not-prose flex flex-col gap-1">
+      <div class="bookshelf-list not-prose">
         {
           booknotes.map((book) => (
-            <a
-              href={`/books/${book.id}`}
-              class="group grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 gap-y-1 rounded-sm text-current no-underline hover:text-current hover:no-underline sm:grid-cols-[minmax(0,1fr)_auto_auto]"
-            >
-              <span class="text-lg text-blue-600 group-hover:underline">
+            <a href={`/books/${book.id}`} class="bookshelf-row group">
+              <span class="bookshelf-title text-lg text-blue-600 group-hover:underline">
                 {book.data.title}
               </span>
-              <span
-                aria-label={`${book.data.rating} out of 5 stars`}
-                class="flex gap-0.5 text-slate-800 sm:justify-self-end"
-              >
+              <span aria-label={`${book.data.rating} out of 5 stars`} class="bookshelf-stars">
                 {Array.from({ length: 5 }, (_, index) => (
                   <span class={index < book.data.rating ? "text-slate-800" : "text-slate-300"}>
                     ★
                   </span>
                 ))}
               </span>
-              <span class="text-sm text-slate-500 sm:text-base">
+              <span class="bookshelf-date text-sm text-slate-500 sm:text-base">
                 {book.data.finishedAt.toLocaleDateString("en-US", {
                   month: "short",
                   year: "numeric",

@@ -7,6 +7,9 @@
         "title": {
           "type": "string"
         },
+        "author": {
+          "type": "string"
+        },
         "rating": {
           "type": "integer",
           "minimum": 0,

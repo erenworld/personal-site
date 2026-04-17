@@ -35,6 +35,7 @@ const booknotes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/data/booknotes" }),
   schema: z.object({
     title: z.string(),
+    author: z.string().optional(),
     rating: z.number().int().min(0).max(5),
     finishedAt: z.coerce.date(),
   }),
