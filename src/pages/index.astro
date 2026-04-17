@@ -1,6 +1,5 @@
 ---
 import Layout from "../components/Layout.astro";
-import { Image } from "astro:assets";
 import Prose from "../components/Prose.astro";
 import SubscribeForm from "../components/NewsletterForm.astro";
 import GitHubContributions from "../components/GitHubContributions.astro";
@@ -10,10 +9,10 @@ import { getBlogPosts } from "../data/utils";
 const posts = await getBlogPosts();
 const newestPosts = posts.slice(0, 5);
 
-const [albums, books] = await Promise.all([
-  getCollection("albums"),
-  getCollection("books"),
-]);
+const booknotes = await getCollection("booknotes");
+booknotes.sort(
+  (a, b) => b.data.finishedAt.getTime() - a.data.finishedAt.getTime(),
+);
 
 const linksClass = "w-fit font-bold";
 ---
@@ -256,51 +255,42 @@ const linksClass = "w-fit font-bold";
       </div>
     </div>
     <div>
-      <h2>Favourites</h2>
-      <h3>Books</h3>
-      <div class="grid grid-cols-3 sm:grid-cols-4 gap-x-6 gap-y-6 not-prose">
+      <h2>Bookshelf</h2>
+      <div class="not-prose flex flex-col gap-1">
         {
-          books.map((book) => (
+          booknotes.map((book) => (
             <a
-              href={`https://books.google.com/books?id=${book.id}`}
-              target="_blank"
+              href={`/books/${book.id}`}
+              class="group grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 gap-y-1 rounded-sm text-current no-underline hover:text-current hover:no-underline sm:grid-cols-[minmax(0,1fr)_auto_auto]"
             >
-              <Image
-                alt={book.data.title}
-                src={`https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1`}
-                width={624}
-                height={320}
-              />
+              <span class="text-lg text-blue-600 group-hover:underline">
+                {book.data.title}
+              </span>
+              <span
+                aria-label={`${book.data.rating} out of 5 stars`}
+                class="flex gap-0.5 text-slate-800 sm:justify-self-end"
+              >
+                {Array.from({ length: 5 }, (_, index) => (
+                  <span class={index < book.data.rating ? "text-slate-800" : "text-slate-300"}>
+                    ★
+                  </span>
+                ))}
+              </span>
+              <span class="text-sm text-slate-500 sm:text-base">
+                {book.data.finishedAt.toLocaleDateString("en-US", {
+                  month: "short",
+                  year: "numeric",
+                })}
+              </span>
             </a>
           ))
         }
       </div>
-      <h3>Albums</h3>
-      <div class="grid grid-cols-3 sm:grid-cols-4 gap-x-6 gap-y-6 not-prose">
-        {
-          albums.map((album) => (
-            <a
-              href={`https://open.spotify.com/album/${album.id}`}
-              target="_blank"
-            >
-              <Image
-                alt={album.data.title}
-                src={`https://i.scdn.co/image/${album.data.imageID}`}
-                width={640}
-                height={640}
-              />
-            </a>
-          ))
-        }
-      </div>
-
       <p>
         You can see the rest on my{" "}
-        <a
-          href="https://letterboxd.com/erenworld/likes/films/by/date/size/large/"
-        >
-          Letterboxd</a
-        >.
+        <a href="https://letterboxd.com/erenworld/likes/films/by/date/size/large/">
+          Letterboxd
+        </a>.
       </p>
     </div>
   </Prose>

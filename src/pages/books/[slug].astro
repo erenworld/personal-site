@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../components/Layout.astro";
+import Prose from "../../components/Prose.astro";
+
+export async function getStaticPaths() {
+  const booknotes = await getCollection("booknotes");
+
+  return booknotes.map((book) => ({
+    params: { slug: book.id },
+    props: { book },
+  }));
+}
+
+const { book } = Astro.props;
+const { Content } = await render(book);
+---
+
+<Layout title={book.data.title} post>
+  <section>
+    <div class="mb-6">
+      <h1 class="font-bold text-4xl mb-2">{book.data.title}</h1>
+      <div class="flex flex-col gap-1 text-sm sm:text-base text-neutral-700">
+        <span
+          aria-label={`${book.data.rating} out of 5 stars`}
+          class="flex gap-0.5 text-slate-800"
+        >
+          {Array.from({ length: 5 }, (_, index) => (
+            <span class={index < book.data.rating ? "text-slate-800" : "text-slate-300"}>
+              ★
+            </span>
+          ))}
+        </span>
+        <span>
+          {book.data.finishedAt.toLocaleDateString("en-US", {
+            month: "short",
+            year: "numeric",
+          })}
+        </span>
+      </div>
+    </div>
+    <article>
+      <Prose class="prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl">
+        <Content />
+      </Prose>
+    </article>
+  </section>
+</Layout>

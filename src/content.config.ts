@@ -31,13 +31,13 @@ const filmsShows = defineCollection({
   }),
 });
 
-const books = defineCollection({
-  loader: file("src/data/favourites.json", {
-    parser: (text) => JSON.parse(text).books,
-  }),
+const booknotes = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/data/booknotes" }),
   schema: z.object({
     title: z.string(),
+    rating: z.number().int().min(0).max(5),
+    finishedAt: z.coerce.date(),
   }),
 });
 
-export const collections = { blog, albums, filmsShows, books };
+export const collections = { blog, albums, filmsShows, booknotes };
