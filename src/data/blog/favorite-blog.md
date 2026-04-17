@@ -16,7 +16,7 @@ I’ll share some blogs that I follow:
 - [Sam Altman](https://blog.samaltman.com/)
 - [Aaron Swartz](http://www.aaronsw.com/weblog/)
 - [Seth Godin](https://seths.blog/)
-- [Emil Eifrem](https://sirupsen.com/)
+- [Simon Eskildsen](https://sirupsen.com/)
 - [Avi Aryan](https://avi.im/blag/)
 - [Jan Nidzwetzki](https://jnidzwetzki.github.io/)
 - [Kaarel Moppel](https://kmoppel.github.io/)
