@@ -12,6 +12,7 @@ Personally, I don’t watch TV or media on TV. [I hate the news](http://www.aaro
 I’ll share some blogs that I follow:
 
 - [Derek Sivers](https://sive.rs/)
+- [Mitchell Hashimoto](https://mitchellh.com/writing)
 - [Naval Ravikant](https://nav.al/)
 - [Sam Altman](https://blog.samaltman.com/)
 - [Aaron Swartz](http://www.aaronsw.com/weblog/)
