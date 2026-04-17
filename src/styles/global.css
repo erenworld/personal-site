@@ -136,12 +136,26 @@
 
   @media (max-width: 639px) {
     .bookshelf-row {
-      grid-template-columns: minmax(0, 1fr) 6.8rem;
-      row-gap: 0.15rem;
+      grid-template-columns: minmax(0, 1fr) 5.5rem;
+      grid-template-areas:
+        "title date"
+        "stars date";
+      row-gap: 0.1rem;
+      align-items: start;
+    }
+
+    .bookshelf-title {
+      grid-area: title;
+    }
+
+    .bookshelf-stars {
+      grid-area: stars;
+      width: 6.8rem;
     }
 
     .bookshelf-date {
-      grid-column: 2;
+      grid-area: date;
+      align-self: start;
     }
   }
 }
