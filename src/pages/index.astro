@@ -259,7 +259,14 @@ const linksClass = "w-fit font-bold";
       <div class="bookshelf-list not-prose">
         {
           booknotes.map((book) => (
-            <a href={`/books/${book.id}`} class="bookshelf-row group">
+            <a
+              href={`https://www.amazon.com/s?k=${encodeURIComponent(
+                `${book.data.title} ${book.data.author ?? ""}`,
+              )}`}
+              target="_blank"
+              rel="noreferrer"
+              class="bookshelf-row group"
+            >
               <span class="bookshelf-title text-lg text-blue-600 group-hover:underline">
                 {book.data.title}
               </span>
@@ -281,7 +288,7 @@ const linksClass = "w-fit font-bold";
         }
       </div>
       <p>
-        You can see the rest on my{" "}
+        Each title opens on Amazon. You can see the rest on my{" "}
         <a href="https://letterboxd.com/erenworld/likes/films/by/date/size/large/">
           Letterboxd
         </a>.
