@@ -159,3 +159,46 @@
     }
   }
 }
+
+.mongo {
+  color: #47a248;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ms-red {
+  color: #f25022;
+}
+.ms-green {
+  color: #7fba00;
+}
+.ms-blue {
+  color: #00a4ef;
+}
+.ms-yellow {
+  color: #ffb900;
+}
+
+.microsoft {
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.microsoft span {
+  cursor: pointer;
+}
+
+.microsoft:hover {
+  opacity: 0.8;
+}
+
+.aws {
+  color: #ff9900;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
