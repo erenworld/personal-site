@@ -3,7 +3,7 @@ date: "2026-04-20"
 title: "On Frameworks"
 ---
 
-I wrote my first line of JavaScript in 2020. I was studying economics and following Colt Steele’s bootcamp on the side, mostly because my courses were painfully boring. That’s how I discovered web development.
+I wrote my first line of JavaScript in 2023. I was studying economics and following Colt Steele’s bootcamp on the side, mostly because my courses were painfully boring. That’s how I discovered web development.
 
 I learned to build a simple CRUD application using plain JavaScript, HTML templates, Bootstrap CSS, and MySQL. The setup was fast. The mental model was simple. You could actually understand what was happening.
 
