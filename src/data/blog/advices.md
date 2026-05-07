@@ -3,7 +3,7 @@ date: "2026-05-07"
 title: "Advice for my youger self"
 ---
 
-This article is inspired by Patrick Collison: https://patrickcollison.com/advice.
+This article is inspired by [Patrick Collison](https://patrickcollison.com/advice).
 
 I’m 22 years old and I’ve learned a few useful things, so I wanted to share them here.
 
