@@ -1,0 +1,8 @@
+---
+import { execSync } from 'node:child_process'
+
+const sha = execSync('git rev-parse HEAD').toString().trim()
+const shortSha = sha.slice(0, 7)
+---
+
+~ <a href={`https://github.com/erenworld/personal-site/commit/${sha}`}>{shortSha}</a>
