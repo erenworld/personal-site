@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content'
+
+interface Props {
+  showAll?: boolean
+}
+
+const { showAll = false } = Astro.props
+
+const allPosts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+
+const posts = showAll ? allPosts : allPosts.slice(0, 5)
+
+const getPostSlug = (id: string) => id.replace(/\.mdx?$/, '')
+---
+
+<ul class='w-full max-w-xl'>
+  {
+    posts.map((post) => (
+      <li>
+        <div class='flex w-full items-baseline justify-between gap-6'>
+          <div class='flex min-w-0 flex-wrap items-baseline gap-x-2'>
+            <a href={`/blog/${getPostSlug(post.id)}/`}>{post.data.title}</a>
+          </div>
+          <time class='shrink-0 text-right' datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString('en-GB', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            })}
+          </time>
+        </div>
+      </li>
+    ))
+  }
+</ul>

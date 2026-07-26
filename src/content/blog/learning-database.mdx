@@ -1,0 +1,46 @@
+---
+date: "2026-07-16"
+title: "My learning journey in databases"
+---
+
+I discovered databases by accident about a year ago. We had a school project where we needed to build a very basic web app and store some data. We used SQLite for simplicity.
+
+After wiring everything up and running my first query, I thought to myself: this seems too easy for something that must be so complex under the hood. So I googled what actually happens when you write something like this:
+
+```sql
+INSERT INTO table1 (column1)
+```
+
+That's when I discovered a whole world of internals and complexity I had no idea existed.
+
+Curious to understand more, I decided to dig in. Starting by reprogramming SQLite from scratch, then later contributing to open source projects like TursoDB.
+
+I've now been learning and practicing for a while, and I don't plan on stopping anytime soon. Here are the resources I used along the way. I hope they help other curious minds too.
+
+
+## Projects
+
+- [LSM-Tree storage engine](https://github.com/erenworld/lsm)
+- MVCC reimplementation
+- [SQLite reimplementation](https://github.com/erenworld/toy-database)
+- A B-Tree series implementing an ABI-compatible BerkeleyDB clone
+- [Rust extension for PostgreSQL](https://github.com/pgcentralfoundation/pgrx)
+- Distributed transactional key-value database
+
+
+## Course
+
+I follow [Andy Pavlo's course](https://15445.courses.cs.cmu.edu/spring2026/). Mikaël Francoeur recommended it to me. It is a great course, with simple explanations, exercises, and 5 projects.
+
+## Books and papers
+
+- [Database Internals](https://www.databass.dev/) by Alex Petrov
+- [How Query Engines Work](https://howqueryengineswork.com/) by Andy Grove
+- [Readings in Database Systems](http://www.redbook.io/)
+- [The Internals of PostgreSQL](https://www.interdb.jp/pg/)
+- [The Art of PostgreSQL](https://theartofpostgresql.com/)
+- [PostgreSQL official documentation](https://www.postgresql.org/docs/)
+
+## Videos
+
+- [Database course video](https://www.youtube.com/watch?v=5Pc18ge9ohI)

@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="description" content="Eren Turkoglu · System engineer"><meta name="theme-color" content="#0284c7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#38bdf8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="alternate" type="application/rss+xml" title="Eren Turkoglu" href="/rss.xml"><link rel="preload" href="/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin><title>My learning journey in databases - Eren Turkoglu</title><script defer src="https://cloud.umami.is/script.js" data-website-id="6dbba5d7-bf0c-4c2a-9163-68630f41d511"></script><link rel="stylesheet" href="/_astro/Layout.g6i-HXXI.css"></head><body class="flex pl-10 pr-6 sm:px-6"><div class="max-w-xs_ relative mx-auto my-10 w-full sm:max-w-lg md:my-20 md:max-w-2xl lg:max-w-3xl"><h1>My learning journey in databases</h1><p><time datetime="2026-07-16T00:00:00.000Z">16 July 2026</time></p><p>I discovered databases by accident about a year ago. We had a school project where we needed to build a very basic web app and store some data. We used SQLite for simplicity.</p>
+<p>After wiring everything up and running my first query, I thought to myself: this seems too easy for something that must be so complex under the hood. So I googled what actually happens when you write something like this:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">INSERT INTO</span><span style="color:#E1E4E8"> table1 (column1)</span></span></code></pre>
+<p>That’s when I discovered a whole world of internals and complexity I had no idea existed.</p>
+<p>Curious to understand more, I decided to dig in. Starting by reprogramming SQLite from scratch, then later contributing to open source projects like TursoDB.</p>
+<p>I’ve now been learning and practicing for a while, and I don’t plan on stopping anytime soon. Here are the resources I used along the way. I hope they help other curious minds too.</p>
+<h2 id="projects">Projects</h2>
+<ul>
+<li><a href="https://github.com/erenworld/lsm">LSM-Tree storage engine</a></li>
+<li>MVCC reimplementation</li>
+<li><a href="https://github.com/erenworld/toy-database">SQLite reimplementation</a></li>
+<li>A B-Tree series implementing an ABI-compatible BerkeleyDB clone</li>
+<li><a href="https://github.com/pgcentralfoundation/pgrx">Rust extension for PostgreSQL</a></li>
+<li>Distributed transactional key-value database</li>
+</ul>
+<h2 id="course">Course</h2>
+<p>I follow <a href="https://15445.courses.cs.cmu.edu/spring2026/">Andy Pavlo’s course</a>. Mikaël Francoeur recommended it to me. It is a great course, with simple explanations, exercises, and 5 projects.</p>
+<h2 id="books-and-papers">Books and papers</h2>
+<ul>
+<li><a href="https://www.databass.dev/">Database Internals</a> by Alex Petrov</li>
+<li><a href="https://howqueryengineswork.com/">How Query Engines Work</a> by Andy Grove</li>
+<li><a href="http://www.redbook.io/">Readings in Database Systems</a></li>
+<li><a href="https://www.interdb.jp/pg/">The Internals of PostgreSQL</a></li>
+<li><a href="https://theartofpostgresql.com/">The Art of PostgreSQL</a></li>
+<li><a href="https://www.postgresql.org/docs/">PostgreSQL official documentation</a></li>
+</ul>
+<h2 id="videos">Videos</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=5Pc18ge9ohI">Database course video</a></li>
+</ul><hr><p><a href="/blog/">Blog</a><span class="separator">|</span><a href="/">Home</a></p></div></body></html>

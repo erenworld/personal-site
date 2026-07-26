@@ -1,35 +1,74 @@
-import rss from "@astrojs/rss";
-import type { APIContext } from "astro";
-import sanitizeHtml from "sanitize-html";
-import MarkdownIt from "markdown-it";
-import { getBlogPosts } from "../data/utils";
+import type { APIRoute } from 'astro'
+import { getCollection } from 'astro:content'
 
-const parser = new MarkdownIt();
-const allowedTags = sanitizeHtml.defaults.allowedTags.concat(["img"]);
+const fallbackSite = new URL('https://erenkad.com')
 
-const getPostContent = (post: Awaited<ReturnType<typeof getBlogPosts>>[number]) => {
-  if (typeof post.rendered?.html === "string") {
-    return post.rendered.html;
-  }
+const escapeXml = (value: string) =>
+  value.replace(/[<>&'"]/g, (character) => {
+    switch (character) {
+      case '<':
+        return '&lt;'
+      case '>':
+        return '&gt;'
+      case '&':
+        return '&amp;'
+      case "'":
+        return '&apos;'
+      case '"':
+        return '&quot;'
+      default:
+        return character
+    }
+  })
 
-  if (typeof post.body === "string") {
-    return parser.render(post.body);
-  }
+const getSlug = (id: string) => id.replace(/\.mdx?$/, '')
 
-  return "";
-};
+const getExcerpt = (body = '') =>
+  body
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/^[-*]\s+/gm, '')
+    .replace(/[#*_>`]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 280)
 
-export async function GET(context: APIContext) {
-  const posts = await getBlogPosts();
-  return rss({
-    title: "Eren Türkoglu",
-    description: "",
-    site: new URL(context.site!),
-    items: posts.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
-      link: `/${post.id}/`,
-      content: sanitizeHtml(getPostContent(post), { allowedTags }),
-    })),
-  });
+export const GET: APIRoute = async (context) => {
+  const site = context.site ?? fallbackSite
+  const posts = (await getCollection('blog'))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+
+  const items = posts
+    .map((post) => {
+      const url = new URL(`/blog/${getSlug(post.id)}/`, site).toString()
+      const description = post.data.description ?? getExcerpt(post.body)
+
+      return `
+    <item>
+      <title>${escapeXml(post.data.title)}</title>
+      <link>${escapeXml(url)}</link>
+      <guid>${escapeXml(url)}</guid>
+      <pubDate>${post.data.date.toUTCString()}</pubDate>
+      <description>${escapeXml(description)}</description>
+    </item>`
+    })
+    .join('')
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Eren Turkoglu</title>
+    <link>${escapeXml(site.toString())}</link>
+    <description>Writing by Eren Turkoglu</description>
+    <language>en</language>${items}
+  </channel>
+</rss>`
+
+  return new Response(xml, {
+    headers: {
+      'Content-Type': 'application/rss+xml; charset=utf-8',
+    },
+  })
 }

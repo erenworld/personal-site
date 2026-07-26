@@ -1,44 +1,14 @@
-import { defineCollection, z } from "astro:content";
-import { file, glob } from "astro/loaders";
+import { defineCollection, z } from 'astro:content'
+import { glob } from 'astro/loaders'
 
 const blog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/data/blog" }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
+    title: z.string(),
     date: z.coerce.date(),
-    title: z.string(),
-    author: z.string().optional(),
     description: z.string().optional(),
+    draft: z.boolean().default(false),
   }),
-});
+})
 
-const albums = defineCollection({
-  loader: file("src/data/favourites.json", {
-    parser: (text) => JSON.parse(text).albums,
-  }),
-  schema: z.object({
-    title: z.string(),
-    imageID: z.string(),
-  }),
-});
-
-const filmsShows = defineCollection({
-  loader: file("src/data/favourites.json", {
-    parser: (text) => JSON.parse(text).filmsShows,
-  }),
-  schema: z.object({
-    title: z.string(),
-    imageID: z.string(),
-  }),
-});
-
-const booknotes = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/data/booknotes" }),
-  schema: z.object({
-    title: z.string(),
-    author: z.string().optional(),
-    rating: z.number().int().min(0).max(5),
-    finishedAt: z.coerce.date(),
-  }),
-});
-
-export const collections = { blog, albums, filmsShows, booknotes };
+export const collections = { blog }

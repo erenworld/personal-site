@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Eren Turkoglu</title>
+    <link>https://erenkad.com/</link>
+    <description>Writing by Eren Turkoglu</description>
+    <language>en</language>
+    <item>
+      <title>My learning journey in databases</title>
+      <link>https://erenkad.com/blog/learning-database/</link>
+      <guid>https://erenkad.com/blog/learning-database/</guid>
+      <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+      <description>I discovered databases by accident about a year ago. We had a school project where we needed to build a very basic web app and store some data. We used SQLite for simplicity. After wiring everything up and running my first query, I thought to myself: this seems too easy for somet</description>
+    </item>
+    <item>
+      <title>Do something instead of talking</title>
+      <link>https://erenkad.com/blog/do-something/</link>
+      <guid>https://erenkad.com/blog/do-something/</guid>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <description>If you are the type of person who talks about your future plans but never does anything, you are a talker guy. I know a lot of people who tell me “Next year I will start a new project.”, others say “Next month I’ll go to the gym. Junk food is over”. Then nothing happens. If you r</description>
+    </item>
+    <item>
+      <title>Advice for my younger self</title>
+      <link>https://erenkad.com/blog/advices/</link>
+      <guid>https://erenkad.com/blog/advices/</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <description>This article is inspired by Patrick Collison. I’m 22 years old and I’ve learned a few useful things, so I wanted to share them here. If you&apos;re 10–20: Find something that interests you. I recommend starting with computers. It’s a huge tree with many branches. You can pick one and </description>
+    </item>
+    <item>
+      <title>On Frameworks</title>
+      <link>https://erenkad.com/blog/web-framework/</link>
+      <guid>https://erenkad.com/blog/web-framework/</guid>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <description>I wrote my first line of JavaScript in 2023. I was studying economics and following Colt Steele’s bootcamp on the side, mostly because my courses were painfully boring. That’s how I discovered web development. I learned to build a simple CRUD application using plain JavaScript, H</description>
+    </item>
+    <item>
+      <title>Favorite blogs</title>
+      <link>https://erenkad.com/blog/favorite-blog/</link>
+      <guid>https://erenkad.com/blog/favorite-blog/</guid>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <description>What you consume has a huge impact on the quality of your life. If you keep watching television and mainstream media, your brain won’t see the world for what it really is. People now even ask AI, like AI knows everything lol. You should learn how to actually use the internet. Per</description>
+    </item>
+    <item>
+      <title>Things I&apos;m proud of</title>
+      <link>https://erenkad.com/blog/things-im-proud-of/</link>
+      <guid>https://erenkad.com/blog/things-im-proud-of/</guid>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate>
+      <description>I recommend everyone to make a list of the things that made them proud. If something makes you proud, it usually means you learned something valuable for life. Here is my list. These moments give me confidence and courage in my daily life. At 10, I helped my parents stop smoking.</description>
+    </item>
+    <item>
+      <title>How to get hired</title>
+      <link>https://erenkad.com/blog/get-hired/</link>
+      <guid>https://erenkad.com/blog/get-hired/</guid>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 GMT</pubDate>
+      <description>Focus on one company Learn all about them. Read their blog. See what they are currently working on. For example, on the Cloudflare blog, you can see how they solve problems. How we found a bug in Go’s ARM64 compiler Each engineer writes about their approach to solving a problem. </description>
+    </item>
+    <item>
+      <title>Cool Things #1</title>
+      <link>https://erenkad.com/blog/ct-1/</link>
+      <guid>https://erenkad.com/blog/ct-1/</guid>
+      <pubDate>Tue, 16 Sep 2025 00:00:00 GMT</pubDate>
+      <description>I’ve been inspired by Thorsten Ball to share my own form of joy and curiosity. Read to Forget - I read a lot, and always find myself sometimes shuffling around to remember the details. But I like this frame of thinking, and it reminds me of how I&apos;ve been reading Taleb&apos;s books by </description>
+    </item>
+    <item>
+      <title>I added email subscriptions</title>
+      <link>https://erenkad.com/blog/email-subs/</link>
+      <guid>https://erenkad.com/blog/email-subs/</guid>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+      <description>Great news for the 2 other people who read my blog – you can now read my posts via email! I tried using Substack as a way to just get my posts in peoples inboxes, but I didn&apos;t like how decoupled it was from my personal website. I don&apos;t like the idea of my posts lazily being poste</description>
+    </item>
+    <item>
+      <title>How to grow a network from scratch (especially when you&apos;re young)</title>
+      <link>https://erenkad.com/blog/grow-network/</link>
+      <guid>https://erenkad.com/blog/grow-network/</guid>
+      <pubDate>Mon, 16 Dec 2024 00:00:00 GMT</pubDate>
+      <description>In high school, I read my first book: How to Win Friends and Influence People by Dale Carnegie. Early on, I learned the immense value of building a strong network especially from scratch, with complete strangers. This also went hand in hand with realizing that having a referral (</description>
+    </item>
+    <item>
+      <title>On Watching Films Alone</title>
+      <link>https://erenkad.com/blog/films-alone/</link>
+      <guid>https://erenkad.com/blog/films-alone/</guid>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 GMT</pubDate>
+      <description>I watch a lot of films... not as much as I wish but a good amount to say that I think it&apos;s so much more enjoyable watching movies alone in the theatre. you can really immerse in the filmmakers world, since you don&apos;t have to worry about making comments to your friends next to you.</description>
+    </item>
+  </channel>
+</rss>

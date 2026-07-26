@@ -1,37 +1,19 @@
-// @ts-check
-import { defineConfig } from "astro/config";
-import { fontProviders } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
-import vercel from "@astrojs/vercel";
+import { defineConfig, envField } from 'astro/config'
+import tailwindcss from '@tailwindcss/vite'
+import mdx from '@astrojs/mdx'
 
-// https://astro.build/config
 export default defineConfig({
-  site: "https://erenworld.github.io",
+  site: 'https://erenkad.com',
+  integrations: [mdx()],
   vite: {
     plugins: [tailwindcss()],
   },
-  image: {
-    domains: ["i.scdn.co", "image.tmdb.org"],
-  },
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-    edgeMiddleware: true,
-  }),
-  markdown: {
-    shikiConfig: {
-      theme: "gruvbox-dark-hard",
+  env: {
+    schema: {
+      GITHUB_TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
     },
   },
-  experimental: {
-    fonts: [
-      {
-        provider: fontProviders.google(),
-        name: "Alegreya",
-        cssVariable: "--font-alegreya",
-        weights: ["400 900"],
-      },
-    ],
+  devToolbar: {
+    enabled: false,
   },
-});
+})

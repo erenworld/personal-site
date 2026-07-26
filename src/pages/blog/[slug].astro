@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from 'astro:content'
+import Layout from '@layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter((post) => !post.data.draft)
+
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/\.mdx?$/, '') },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+---
+
+<Layout frontmatter={{ title: `${post.data.title} - Eren Turkoglu` }}>
+  <h1>{post.data.title}</h1>
+
+  <p>
+    <time datetime={post.data.date.toISOString()}>
+      {
+        post.data.date.toLocaleDateString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })
+      }
+    </time>
+  </p>
+
+  <Content />
+
+  <hr />
+
+  <p>
+    <a href='/blog/'>Blog</a>
+    <span class='separator'>|</span>
+    <a href='/'>Home</a>
+  </p>
+</Layout>
