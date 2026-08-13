@@ -9,8 +9,8 @@ const { frontmatter } = Astro.props
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
     <meta name='description' content='Eren Turkoglu · System engineer' />
-    <meta name='theme-color' content='#0284c7' media='(prefers-color-scheme: light)' />
-    <meta name='theme-color' content='#38bdf8' media='(prefers-color-scheme: dark)' />
+    <meta name='theme-color' content='#d97757' media='(prefers-color-scheme: light)' />
+    <meta name='theme-color' content='#d97757' media='(prefers-color-scheme: dark)' />
     <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
     <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
     <link rel='alternate' type='application/rss+xml' title='Eren Turkoglu' href='/rss.xml' />
@@ -38,15 +38,15 @@ const { frontmatter } = Astro.props
   }
 
   :root {
-    --link-color-light: oklch(54% 0.169 242);
-    --link-color-dark: oklch(68% 0.169 242);
+    --link-color-light: oklch(67.2% 0.131 38.8);
+    --link-color-dark: oklch(67.2% 0.131 38.8);
   }
 
   html {
     @apply font-body;
     @apply text-lg;
     @apply leading-snug;
-    @apply bg-sky-600;
+    @apply bg-brand;
     @apply antialiased;
     @apply text-zinc-500;
   }
@@ -56,7 +56,7 @@ const { frontmatter } = Astro.props
   }
 
   a {
-    @apply text-sky-600;
+    @apply text-brand;
   }
 
   a:focus-visible {
@@ -180,7 +180,7 @@ const { frontmatter } = Astro.props
 
   @media (prefers-color-scheme: dark) {
     html {
-      @apply bg-sky-400;
+      @apply bg-brand;
       @apply text-zinc-400;
     }
 
@@ -189,7 +189,7 @@ const { frontmatter } = Astro.props
     }
 
     a {
-      @apply text-sky-400;
+      @apply text-brand;
     }
 
     @media (color-gamut: p3) {
