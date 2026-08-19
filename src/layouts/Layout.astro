@@ -96,6 +96,7 @@ const { frontmatter } = Astro.props
   h2,
   h3,
   h4 {
+    @apply relative;
     @apply text-zinc-900 uppercase;
   }
 
@@ -104,10 +105,8 @@ const { frontmatter } = Astro.props
   h3:before,
   h4:before {
     @apply absolute;
-    @apply -left-9;
-    @apply w-6;
     @apply text-zinc-300;
-    @apply text-right;
+    right: calc(100% + 0.75rem);
   }
 
   h1:before {
