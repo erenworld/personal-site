@@ -1,0 +1,85 @@
+---
+import Layout from '@layouts/Layout.astro'
+import BioToggle from '@components/BioToggle.astro'
+import BlogList from '@components/BlogList.astro'
+import LongBio from '@components/LongBio.astro'
+import Age from '@components/Age.astro'
+import Lightbox from '@components/Lightbox.astro'
+
+const notes = [
+  { title: 'Now', href: '/now/' },
+  { title: 'About', href: '/about/' },
+  { title: 'Projects', href: '/projects/' },
+  { title: 'Currently enjoying', href: '/uses/' },
+]
+---
+
+<Layout title='Eren Turkoglu' description='Engineer and writer.'>
+  <div class='home-layout'>
+    <div class='home-copy'>
+      <h1 class='site-title'>
+        <a
+          href='https://x.com/erentrkg'
+          target='_blank'
+          rel='noopener noreferrer'
+          class='site-title-link'
+        >
+          <p class='content-paragraph'>
+            <span class='site-title-at'>@</span>erenworld
+          </p>
+        </a>
+      </h1>
+
+      <BioToggle>
+        <Fragment slot='default'>
+          <p class='content-paragraph'>
+            I’m <Age birthdate='2004-01-22' /> years old, a system engineer and writer. I’m joining <a
+              href='https://radome.io'
+              target='_blank'
+              rel='noopener noreferrer'>Radome</a
+            > as a backend intern this September, where I’ll be working on a compliance platform for fintech
+            startups. Previously, I worked at <a
+              href='https://kolizeo.fr'
+              target='_blank'
+              rel='noopener noreferrer'>Kolizeo</a
+            >, building products for the sports industry.
+          </p>
+          <p class='content-paragraph'>
+            Outside of work, I run <a
+              href='https://databasestory.com'
+              target='_blank'
+              rel='noopener noreferrer'>DatabaseStory</a
+            >, where I interview database engineers from companies like Google, Microsoft, and AWS
+            to explore their careers and the lessons they’ve learned along the way. I like meeting
+            people and reply to every email, so <a href='mailto:erenxturkoglu@gmail.com'
+              >say hello</a
+            >.
+          </p>
+        </Fragment>
+        <Fragment slot='long'>
+          <LongBio />
+        </Fragment>
+      </BioToggle>
+
+      <div class='writing-index'>
+        <section aria-labelledby='notes-heading'>
+          <h2 id='notes-heading'>Links</h2>
+          <ul class='notes-list'>
+            {
+              notes.map((note) => (
+                <li>
+                  <a href={note.href}>{note.title}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+        <section aria-labelledby='blogs-heading'>
+          <h2 id='blogs-heading'>Blogs</h2>
+          <BlogList />
+        </section>
+      </div>
+    </div>
+  </div>
+  <Lightbox />
+</Layout>

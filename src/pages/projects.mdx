@@ -1,0 +1,42 @@
+---
+layout: "@layouts/Layout.astro"
+title: Projects | Eren Turkoglu
+---
+
+import { mdxComponents } from "@components/mdx";
+import ArticleMeta from "@components/ArticleMeta.astro";
+import GitHubProject from "@components/GitHubProject.astro";
+
+export const components = mdxComponents;
+
+# Projects
+
+<ArticleMeta />
+
+These are a few of the open source projects I've worked on. See more on [my GitHub profile](https://github.com/erenworld).
+
+- <GitHubProject
+    name="LSM-Tree storage engine"
+    description="LSM-Tree storage engine based on RocksDB"
+    repo="erenworld/lsm"
+  />
+- <GitHubProject
+    name="toy-database"
+    description="SQLite from scratch in C"
+    repo="erenworld/toy-database"
+  />
+- <GitHubProject
+    name="awesome-database"
+    description="Curated list of awesome database stories"
+    repo="erenworld/awesome-database"
+  />
+- <GitHubProject
+    name="QoreDB"
+    description="Next Generation Database Client"
+    repo="QoreDB/QoreDB"
+  />
+- <GitHubProject
+    name="TursoDB"
+    description="In-process SQL database compatible with SQLite"
+    repo="tursodatabase/turso"
+  />

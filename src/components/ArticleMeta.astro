@@ -1,0 +1,16 @@
+---
+interface Props {
+  date?: Date
+}
+
+const { date } = Astro.props
+const formatted = date?.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+---
+
+<a class='article-meta' href='/'>
+  <span class='article-meta-details'>
+    {formatted && <time datetime={date!.toISOString().slice(0, 10)}>{formatted}</time>}
+    {formatted && <span aria-hidden='true'>·</span>}
+    <span class='article-meta-name'>Eren Turkoglu</span>
+  </span>
+</a>

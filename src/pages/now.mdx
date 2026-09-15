@@ -1,11 +1,16 @@
 ---
-layout: '@layouts/Layout.astro'
-title: Now - Eren Turkoglu
+layout: "@layouts/Layout.astro"
+title: Now | Eren Turkoglu
 ---
+
+import { mdxComponents } from "@components/mdx";
+import ArticleMeta from "@components/ArticleMeta.astro";
+
+export const components = mdxComponents;
 
 # Now
 
-_Updated on August 13, 2026._
+<ArticleMeta date={new Date("2026-08-13")} />
 
 🖥️ Working: I am a backend intern at [Radome](https://radome.io), working on compliance infrastructure for startups. I believe in the product and the vision.
 
@@ -20,7 +25,3 @@ _Updated on August 13, 2026._
 🏍️ Watching: After watching [Better Call Saul](https://www.netflix.com/title/80021955), which is probably in my top 5 now, I started watching The Last of Us.
 
 👀 Looking forward to: Having more quiet time for reading and writing, going deeper into my projects, and meeting curious people.
-
----
-
-[Home](/)

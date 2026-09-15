@@ -1,17 +1,52 @@
 ---
+// Live age counter: "22.64837291" that keeps ticking forward.
+// Rendered once at build time, then updated every frame in the browser.
 interface Props {
-  birthdate: string
+  birthdate: string // ISO date, e.g. 2004-01-22
+  decimals?: number
 }
 
-const { birthdate } = Astro.props
-const birth = new Date(birthdate)
-const today = new Date()
+const { birthdate, decimals = 8 } = Astro.props
 
-let age = today.getFullYear() - birth.getFullYear()
-const monthDiff = today.getMonth() - birth.getMonth()
-
-if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-  age--
+const computeAge = (birth: Date, now: Date) => {
+  let years = now.getFullYear() - birth.getFullYear()
+  let last = new Date(birth)
+  last.setFullYear(birth.getFullYear() + years)
+  if (last > now) {
+    years--
+    last.setFullYear(birth.getFullYear() + years)
+  }
+  const next = new Date(last)
+  next.setFullYear(last.getFullYear() + 1)
+  return years + (now.getTime() - last.getTime()) / (next.getTime() - last.getTime())
 }
+
+const initial = computeAge(new Date(birthdate), new Date()).toFixed(decimals)
 ---
-{age}
+
+<span class='live-age' data-birthdate={birthdate} data-decimals={decimals}>{initial}</span>
+
+<script>
+  const computeAge = (birth: Date, now: Date) => {
+    let years = now.getFullYear() - birth.getFullYear()
+    let last = new Date(birth)
+    last.setFullYear(birth.getFullYear() + years)
+    if (last > now) {
+      years--
+      last.setFullYear(birth.getFullYear() + years)
+    }
+    const next = new Date(last)
+    next.setFullYear(last.getFullYear() + 1)
+    return years + (now.getTime() - last.getTime()) / (next.getTime() - last.getTime())
+  }
+
+  document.querySelectorAll<HTMLElement>('.live-age').forEach((el) => {
+    const birth = new Date(el.dataset.birthdate!)
+    const decimals = Number(el.dataset.decimals)
+    const tick = () => {
+      el.textContent = computeAge(birth, new Date()).toFixed(decimals)
+      requestAnimationFrame(tick)
+    }
+    tick()
+  })
+</script>

@@ -1,9 +1,16 @@
 ---
-layout: '@layouts/Layout.astro'
-title: About - Eren Turkoglu
+layout: "@layouts/Layout.astro"
+title: About | Eren Turkoglu
 ---
 
+import { mdxComponents } from "@components/mdx";
+import ArticleMeta from "@components/ArticleMeta.astro";
+
+export const components = mdxComponents;
+
 # About
+
+<ArticleMeta />
 
 I am Eren Turkoglu, a system engineer interested in databases, infrastructure, and useful software.
 
@@ -13,6 +20,10 @@ Outside of work, I run [DatabaseStory](https://databasestory.com), where I inter
 
 I like simple tools, clear writing, and software that feels understandable from top to bottom.
 
----
+## Elsewhere
 
-[Home](/)
+- [GitHub](https://github.com/erenworld)
+- [Bluesky](https://bsky.app/profile/erenworld.me)
+- [LinkedIn](https://www.linkedin.com/in/erenturkoglu/)
+- [Email](mailto:erenxturkoglu@gmail.com)
+- [RSS](/rss.xml)

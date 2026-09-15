@@ -21,7 +21,6 @@ try {
 } catch {
   // Fetch failed, show without stars
 }
-
 ---
 
-<a href=`https://github.com/${repo}`>{name}</a>: {description}{starCount && ` (⭑${new Intl.NumberFormat().format(starCount)})`}
+<a class='content-link' href={`https://github.com/${repo}`} target='_blank' rel='noopener noreferrer'>{name}</a>: {description}{starCount && ` (⭑${new Intl.NumberFormat().format(starCount)})`}

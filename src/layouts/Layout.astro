@@ -1,231 +1,65 @@
 ---
 import '../styles/global.css'
-const { frontmatter } = Astro.props
+
+interface Props {
+  frontmatter?: { title?: string; description?: string }
+  title?: string
+  description?: string
+}
+
+const { frontmatter, title, description } = Astro.props
+const pageTitle = title ?? frontmatter?.title ?? 'Eren Turkoglu'
+const pageDescription = description ?? frontmatter?.description ?? 'Engineer and writer.'
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://erenkad.com').toString()
 ---
 
 <!doctype html>
 <html lang='en'>
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
-    <meta name='description' content='Eren Turkoglu · System engineer' />
-    <meta name='theme-color' content='#d97757' media='(prefers-color-scheme: light)' />
-    <meta name='theme-color' content='#d97757' media='(prefers-color-scheme: dark)' />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>{pageTitle}</title>
+    <meta name='description' content={pageDescription} />
+    <link rel='canonical' href={canonical} />
+    <meta property='og:title' content={pageTitle} />
+    <meta property='og:description' content={pageDescription} />
+    <meta name='twitter:card' content='summary' />
+    <meta name='twitter:title' content={pageTitle} />
+    <meta name='twitter:description' content={pageDescription} />
+    <link rel='icon' href='/favicon.ico' sizes='48x48' type='image/x-icon' />
     <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
     <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
     <link rel='alternate' type='application/rss+xml' title='Eren Turkoglu' href='/rss.xml' />
-    <link rel='preload' href='/fonts/GeistMono-Variable.woff2' as='font' type='font/woff2' crossorigin />
-    <title>{frontmatter.title}</title>
+    <script is:inline>
+      // Same behaviour as next-themes: "theme" in localStorage, defaults to system.
+      ;(() => {
+        const root = document.documentElement
+        let theme = 'system'
+        try {
+          theme = localStorage.getItem('theme') || 'system'
+        } catch {}
+        const resolved =
+          theme === 'system'
+            ? window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+            : theme
+        root.classList.remove('light', 'dark')
+        root.classList.add(resolved)
+        root.style.colorScheme = resolved
+      })()
+    </script>
     <script
       defer
       src='https://cloud.umami.is/script.js'
       data-website-id='6dbba5d7-bf0c-4c2a-9163-68630f41d511'></script>
   </head>
-  <body class='flex pl-10 pr-6 sm:px-6'>
-    <div
-      class='max-w-xs_ relative mx-auto my-10 w-full sm:max-w-lg md:my-20 md:max-w-2xl lg:max-w-3xl'
-    >
-      <slot />
-    </div>
+  <body class='antialiased'>
+    <main class='site-shell'>
+      <article class='content-frame'>
+        <slot />
+        <footer class='article-margin-notes' aria-label='Notes'></footer>
+      </article>
+    </main>
   </body>
 </html>
-<style is:global>
-  @reference '../styles/global.css';
-  @font-face {
-    font-family: 'Geist Mono';
-    src: url('/fonts/GeistMono-Variable.woff2') format('woff2');
-    font-display: swap;
-  }
-
-  :root {
-    --link-color-light: oklch(67.2% 0.131 38.8);
-    --link-color-dark: oklch(67.2% 0.131 38.8);
-  }
-
-  html {
-    @apply font-body;
-    @apply text-lg;
-    @apply leading-snug;
-    @apply bg-brand;
-    @apply antialiased;
-    @apply text-zinc-500;
-  }
-
-  body {
-    @apply bg-zinc-100 min-h-screen;
-  }
-
-  a {
-    @apply text-brand;
-  }
-
-  a:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
-    border-radius: 2px;
-  }
-
-  @media (color-gamut: p3) {
-    a {
-      color: var(--link-color-light);
-    }
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  ul,
-  ol,
-  blockquote,
-  pre,
-  code,
-  table,
-  caption {
-    @apply mb-6;
-  }
-
-  pre.astro-code {
-    @apply px-5;
-    @apply py-4;
-    @apply rounded-lg;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply text-zinc-900 uppercase;
-  }
-
-  h1:before,
-  h2:before,
-  h3:before,
-  h4:before {
-    @apply absolute;
-    @apply -left-9;
-    @apply w-6;
-    @apply text-zinc-300;
-    @apply text-right;
-  }
-
-  h1:before {
-    content: '#';
-  }
-
-  h2:before {
-    content: '##';
-  }
-
-  h3:before {
-    content: '###';
-  }
-
-  h4:before {
-    content: '####';
-  }
-
-  ul {
-    @apply ml-4;
-    @apply list-['*\2002'];
-  }
-
-  b,
-  strong {
-    @apply font-semibold;
-  }
-
-  b:before,
-  strong:before {
-    @apply text-zinc-300;
-    content: '**';
-  }
-
-  b:after,
-  strong:after {
-    @apply text-zinc-300;
-    content: '**';
-  }
-
-  i:before,
-  em:before {
-    @apply text-zinc-300;
-    content: '_';
-  }
-
-  i:after,
-  em:after {
-    @apply opacity-40;
-    @apply mix-blend-hard-light;
-    content: '_';
-  }
-
-  hr {
-    @apply my-6;
-    @apply invisible;
-    @apply h-6;
-  }
-
-  hr:before {
-    @apply visible;
-    @apply opacity-40;
-    @apply mix-blend-hard-light;
-    content: '----';
-  }
-
-  .separator {
-    @apply text-zinc-300;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    html {
-      @apply bg-brand;
-      @apply text-zinc-400;
-    }
-
-    body {
-      @apply bg-zinc-900;
-    }
-
-    a {
-      @apply text-brand;
-    }
-
-    @media (color-gamut: p3) {
-      a {
-        color: var(--link-color-dark);
-      }
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      @apply text-zinc-50;
-    }
-
-    h1:before,
-    h2:before,
-    h3:before,
-    h4:before {
-      @apply text-zinc-600;
-    }
-
-    b:before,
-    strong:before,
-    b:after,
-    strong:after {
-      @apply text-zinc-600;
-    }
-
-    i:before,
-    em:before {
-      @apply text-zinc-600;
-    }
-
-    .separator {
-      @apply text-zinc-600;
-    }
-  }
-</style>
