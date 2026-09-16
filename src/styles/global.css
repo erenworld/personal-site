@@ -278,6 +278,13 @@ h4 {
   line-height: 1.35;
   display: flex;
 }
+.article-meta-avatar {
+  flex-shrink: 0;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
 .content-title:has(+ .article-meta) {
   margin-bottom: 12px;
   line-height: 1.1;

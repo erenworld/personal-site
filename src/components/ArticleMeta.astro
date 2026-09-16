@@ -8,6 +8,7 @@ const formatted = date?.toLocaleDateString('en-US', { month: 'long', year: 'nume
 ---
 
 <a class='article-meta' href='/'>
+  <img class='article-meta-avatar' src='/tete.png' alt='' width='24' height='24' loading='lazy' />
   <span class='article-meta-details'>
     {formatted && <time datetime={date!.toISOString().slice(0, 10)}>{formatted}</time>}
     {formatted && <span aria-hidden='true'>·</span>}
