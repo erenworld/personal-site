@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
+import ProjectStatus from "@/components/ProjectStatus.astro";
+import Link from "@/components/Link.astro";
+import BackLink from "@/components/BackLink.astro";
+import MDContent from "@/components/MDContent.astro";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.id.toLowerCase() },
+    props: project,
+  }));
+}
+
+type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]["props"];
+
+const project = Astro.props;
+const { Content } = await render(project);
+
+// Get code from frontmatter
+const code = project.data.code?.toUpperCase();
+---
+
+<Layout title={`${project.data.title} - Eren Turkoglu`} description={project.data.description}>
+  <article class="px-2 md:px-4 max-w-article mx-auto">
+    <header class="mb-2lh grid grid-cols-[1fr_auto] gap-x-2 not-prose">
+      <h1 class="mb-0 font-bold">
+        {
+          project.data.url ? (
+            <Link href={project.data.url}>{project.data.title}</Link>
+          ) : (
+            project.data.title
+          )
+        }
+      </h1>
+
+      {
+        project.data.status && (
+          <div class="flex gap-[1ch] justify-end">
+            <ProjectStatus status={project.data.status} />
+          </div>
+        )
+      }
+
+      <div class="flex gap-[1ch]">
+        <span class="text-fg-2">{code}</span>
+        <span class="opacity-25">|</span>
+        <FormattedDate date={project.data.date} />
+      </div>
+    </header>
+
+    <div class="max-w-none">
+      <MDContent Content={Content} components={{ a: Link }} />
+    </div>
+
+    <BackLink href="/projects" label="Back to projects" />
+  </article>
+</Layout>

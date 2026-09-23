@@ -1,0 +1,21 @@
+---
+interface Props {
+  status: "experimental" | "active" | "completed" | "archived" | "maintenance";
+}
+
+const { status } = Astro.props;
+
+const statusColors = {
+  experimental: "bg-purple-500/20 text-purple-700 dark:text-purple-300",
+  active: "bg-green-500/20 text-green-700 dark:text-green-300",
+  completed: "bg-blue-500/20 text-blue-700 dark:text-blue-300",
+  archived: "bg-gray-500/20 text-gray-700 dark:text-gray-400",
+  maintenance: "bg-yellow-500/20 text-yellow-700 dark:text-yellow-300",
+};
+
+const statusColor = statusColors[status] || "bg-1 text-fg-1";
+---
+
+<span class={`px-1 ${statusColor}`}>
+  {status}
+</span>

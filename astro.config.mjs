@@ -1,24 +1,42 @@
-import { defineConfig, envField } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
-import mdx from "@astrojs/mdx";
+// @ts-check
 
+import { fileURLToPath } from "node:url";
+import mdx from "@astrojs/mdx";
+import { satteri } from "@astrojs/markdown-satteri";
+import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
+import UnoCSS from "@unocss/astro";
+import { satteriMdcToMdx } from "./src/plugins/remark-mdc-to-mdx.ts";
+import { satteriMermaidAscii } from "./src/plugins/remark-mermaid-ascii.ts";
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://erenkad.com",
-  integrations: [mdx()],
-  markdown: {
-    // Token colors come from the --sh-* variables in global.css
-    shikiConfig: { theme: "css-variables" },
-  },
+  output: "static",
+  integrations: [
+    mdx({
+      syntaxHighlight: "shiki",
+      shikiConfig: {
+        theme: "github-light",
+      },
+    }),
+    sitemap(),
+    UnoCSS(),
+  ],
   vite: {
-    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+      },
+    },
   },
-  env: {
-    schema: {
-      GITHUB_TOKEN: envField.string({
-        context: "server",
-        access: "secret",
-        optional: true,
-      }),
+  markdown: {
+    processor: satteri({
+      mdastPlugins: [satteriMermaidAscii(), satteriMdcToMdx()],
+      features: { directive: true, gfm: true },
+    }),
+    shikiConfig: {
+      theme: "github-dark",
     },
   },
   devToolbar: {

@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import LinkList from "@/components/LinkList.astro";
+import type { LinkListItem } from "@/components/LinkList.astro";
+import { Code } from "@/utils/code";
+
+interface Props {
+  limit?: number;
+}
+
+const { limit = 5 } = Astro.props;
+
+// Get latest published blog posts
+const latestPosts = (await getCollection("blog", ({ data }) => import.meta.env.DEV || !data.draft))
+  .map((post) => ({
+    ...post,
+    code: post.data.code ? post.data.code.toUpperCase() : Code.fromDate(post.data.date, "B").toString(),
+  }))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, limit);
+
+// Transform for LinkList
+const linkListItems: LinkListItem[] = latestPosts.map((post) => {
+  const date = `${post.data.date.getFullYear()}-${String(post.data.date.getMonth() + 1).padStart(2, "0")}-${String(post.data.date.getDate()).padStart(2, "0")}`;
+  return {
+    code: post.code,
+    slug: Code.buildUrl("blog", post.id),
+    title: post.data.title,
+    date,
+  };
+});
+---
+
+<section class="not-prose flex flex-col gap-1 mt-2">
+  <h2 class="font-bold">Latest Posts</h2>
+  <LinkList
+    items={linkListItems}
+    columns={["code", "date", "title"]}
+    variant="grid"
+    gap="normal"
+    headingLevel="h3"
+    class="pl-1"
+  />
+  <a href="/blog" class="text-fg-2 hover:text-accent hover:underline inline-block">
+    View all posts →
+  </a>
+</section>

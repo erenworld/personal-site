@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import LinkList from "@/components/LinkList.astro";
+import type { LinkListItem } from "@/components/LinkList.astro";
+import { Code } from "@/utils/code";
+
+const projects = (await getCollection("projects"))
+  .map((post) => ({
+    ...post,
+    code: post.data.code ? post.data.code.toUpperCase() : Code.fromDate(post.data.date, "P").toString(),
+  }))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Transform projects for LinkList
+const linkListItems: LinkListItem[] = projects.map((project) => ({
+  code: project.code,
+  slug: Code.buildUrl("projects", project.id),
+  title: project.data.title,
+  status: project.data.status,
+  description: project.data.description,
+}));
+---
+
+<Layout title="Projects - Eren Turkoglu">
+  <header class="mb-2">
+    <h1 class="font-bold">~/projects</h1>
+  </header>
+
+  <LinkList
+    items={linkListItems}
+    columns={["code", "status", "title"]}
+    variant="grid"
+    gap="tight"
+    statusType="project"
+  />
+</Layout>

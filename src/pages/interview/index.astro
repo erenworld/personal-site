@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import LinkList from "@/components/LinkList.astro";
+import type { LinkListItem } from "@/components/LinkList.astro";
+import { Code } from "@/utils/code";
+
+const interviews = (await getCollection("interview"))
+  .map((interview) => ({
+    ...interview,
+    code: interview.data.code
+      ? interview.data.code.toUpperCase()
+      : Code.fromDate(interview.data.date, "I").toString(),
+  }))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Transform interviews for LinkList - each guest links out to their databasestory.com episode
+const linkListItems: LinkListItem[] = interviews.map((interview) => {
+  const date = `${interview.data.date.getFullYear()}-${String(interview.data.date.getMonth() + 1).padStart(2, "0")}-${String(interview.data.date.getDate()).padStart(2, "0")}`;
+  return {
+    code: interview.code,
+    slug: interview.data.guestUrl,
+    title: `Interview with ${interview.data.guest} from ${interview.data.company}`,
+    date,
+  };
+});
+---
+
+<Layout title="Interviews - Eren Turkoglu">
+  <header class="mb-2">
+    <h1 class="font-bold">~/interview</h1>
+  </header>
+
+  <LinkList items={linkListItems} columns={["code", "date", "title"]} variant="grid" gap="normal" />
+</Layout>

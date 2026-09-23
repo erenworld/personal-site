@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from "astro:content";
+import Link from "@/components/Link.astro";
+import MDContent from "@/components/MDContent.astro";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((page) => ({
+    params: {
+      slug: page.id === "index" ? undefined : page.id.toLowerCase(),
+    },
+    props: page,
+  }));
+}
+
+type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]["props"];
+
+const page = Astro.props;
+const { Content } = await render(page);
+
+const title =
+  page.id === "index"
+    ? "Eren Turkoglu"
+    : `${page.id.charAt(0).toUpperCase() + page.id.slice(1)} - Eren Turkoglu`;
+---
+
+<Layout title={title}>
+  <article>
+    <MDContent Content={Content} components={{ a: Link }} />
+  </article>
+</Layout>

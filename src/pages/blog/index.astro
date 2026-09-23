@@ -1,11 +1,118 @@
 ---
-import Layout from '@layouts/Layout.astro'
-import ArticleMeta from '@components/ArticleMeta.astro'
-import BlogList from '@components/BlogList.astro'
+import { getCollection } from "astro:content";
+import Tag from "@/components/Tag.astro";
+import LinkList from "@/components/LinkList.astro";
+import type { LinkListItem } from "@/components/LinkList.astro";
+import Layout from "@/layouts/Layout.astro";
+import { Code } from "@/utils/code";
+
+// Get all blog posts
+const publishedPosts = (
+  await getCollection("blog", ({ data }) => import.meta.env.DEV || !data.draft)
+)
+  .map((post) => ({
+    ...post,
+    code: post.data.code ? post.data.code.toUpperCase() : Code.fromDate(post.data.date, "B").toString(),
+  }))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Calculate tag counts from all posts
+const tagCounts = new Map<string, number>();
+publishedPosts.forEach((post) => {
+  post.data.tags.forEach((tag) => {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  });
+});
+
+const sortedTags = Array.from(tagCounts.entries())
+  .map(([tag, count]) => ({ tag, count }))
+  .sort((a, b) => a.tag.localeCompare(b.tag));
+
+// Transform posts for LinkList (tag filtering happens client-side, see script below)
+const linkListItems: LinkListItem[] = publishedPosts.map((post) => {
+  const date = `${post.data.date.getFullYear()}-${String(post.data.date.getMonth() + 1).padStart(2, "0")}-${String(post.data.date.getDate()).padStart(2, "0")}`;
+  return {
+    code: post.code,
+    slug: Code.buildUrl("blog", post.id),
+    title: post.data.title,
+    date,
+    tags: post.data.tags,
+  };
+});
 ---
 
-<Layout title='Blogs | Eren Turkoglu'>
-  <h1 class='content-title'>Blogs</h1>
-  <ArticleMeta />
-  <BlogList />
+<Layout title="Blog - Eren Turkoglu">
+  <header class="relative mb-2 flex flex-wrap items-start gap-[1ch]">
+    <h1 class="font-bold">~/blog</h1>
+    {
+      sortedTags.length > 0 && (
+        <div class="tag-filter flex">
+          <button
+            type="button"
+            id="tag-filter-button"
+            class="text-fg-2 flex cursor-pointer items-center gap-[0.5ch] border-none bg-transparent p-0 text-sm"
+            aria-label="Filter by tag"
+            title="Filter by tag"
+          >
+            <div class="i-pixel-tag" aria-hidden="true" />
+            <span id="tag-filter-label">{sortedTags.length}</span>
+          </button>
+          <div class="tag-list absolute left-0 top-full z-10 hidden pt-1">
+            <div class="bg-1 flex max-w-full flex-wrap gap-0 p-1">
+              <a
+                href="/blog"
+                id="clear-tag-link"
+                class="text-accent hocus:bg-0 hocus:invert hidden items-center border-2 border-fg-0 px-[1ch] font-medium outline-none"
+              >
+                clear
+              </a>
+              {sortedTags.map(({ tag, count }) => (
+                <Tag tag={tag} count={count} url="/blog" />
+              ))}
+            </div>
+          </div>
+        </div>
+      )
+    }
+  </header>
+
+  <LinkList items={linkListItems} columns={["code", "date", "title"]} variant="grid" gap="normal" />
 </Layout>
+
+<style>
+  .tag-filter:hover .tag-list,
+  .tag-filter:focus-within .tag-list,
+  .tag-list:hover {
+    display: block;
+  }
+</style>
+
+<script>
+  function getSelectedTag(): string | null {
+    return new URLSearchParams(location.search).get("tag");
+  }
+
+  function applyFilter() {
+    const selected = getSelectedTag();
+    const label = document.getElementById("tag-filter-label");
+    const clearLink = document.getElementById("clear-tag-link");
+    const totalTags = document.querySelectorAll("[data-tag]").length;
+
+    if (label) label.textContent = selected ?? String(totalTags);
+    clearLink?.classList.toggle("hidden", !selected);
+    clearLink?.classList.toggle("flex", !!selected);
+
+    document.querySelectorAll<HTMLElement>("[data-tag]").forEach((el) => {
+      el.classList.toggle("invert", el.dataset.tag === selected);
+    });
+
+    document.querySelectorAll<HTMLAnchorElement>("a[data-nav-item]").forEach((el) => {
+      const tags = (el.dataset.tags || "").split(",").filter(Boolean);
+      const show = !selected || tags.includes(selected);
+      const li = el.closest("li");
+      if (li) (li as HTMLElement).hidden = !show;
+    });
+  }
+
+  applyFilter();
+</script>

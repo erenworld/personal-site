@@ -1,65 +1,28 @@
 ---
-import '../styles/global.css'
+import BaseHead from "@/components/BaseHead.astro";
+import Nav from "@/components/Nav.astro";
+import "@/styles/global.css";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
 interface Props {
-  frontmatter?: { title?: string; description?: string }
-  title?: string
-  description?: string
+  title?: string;
+  description?: string;
 }
 
-const { frontmatter, title, description } = Astro.props
-const pageTitle = title ?? frontmatter?.title ?? 'Eren Turkoglu'
-const pageDescription = description ?? frontmatter?.description ?? 'Engineer and writer.'
-const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://erenkad.com').toString()
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <title>{pageTitle}</title>
-    <meta name='description' content={pageDescription} />
-    <link rel='canonical' href={canonical} />
-    <meta property='og:title' content={pageTitle} />
-    <meta property='og:description' content={pageDescription} />
-    <meta name='twitter:card' content='summary' />
-    <meta name='twitter:title' content={pageTitle} />
-    <meta name='twitter:description' content={pageDescription} />
-    <link rel='icon' href='/favicon.ico' sizes='48x48' type='image/x-icon' />
-    <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
-    <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
-    <link rel='alternate' type='application/rss+xml' title='Eren Turkoglu' href='/rss.xml' />
-    <script is:inline>
-      // Same behaviour as next-themes: "theme" in localStorage, defaults to system.
-      ;(() => {
-        const root = document.documentElement
-        let theme = 'system'
-        try {
-          theme = localStorage.getItem('theme') || 'system'
-        } catch {}
-        const resolved =
-          theme === 'system'
-            ? window.matchMedia('(prefers-color-scheme: dark)').matches
-              ? 'dark'
-              : 'light'
-            : theme
-        root.classList.remove('light', 'dark')
-        root.classList.add(resolved)
-        root.style.colorScheme = resolved
-      })()
-    </script>
-    <script
-      defer
-      src='https://cloud.umami.is/script.js'
-      data-website-id='6dbba5d7-bf0c-4c2a-9163-68630f41d511'></script>
+    <BaseHead {title} {description} />
   </head>
-  <body class='antialiased'>
-    <main class='site-shell'>
-      <article class='content-frame'>
+  <body class="max-lg:pt-lh max-lg:pb-lh lg:pt-lh flex min-h-screen flex-col">
+    <Nav />
+    <div class="mx-auto flex w-full max-w-4xl flex-1 flex-col px-2">
+      <main id="main-content" class="mt-2lh flex-1 focus:outline-none" tabindex="-1">
         <slot />
-        <footer class='article-margin-notes' aria-label='Notes'></footer>
-      </article>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
