@@ -15,6 +15,7 @@
 @import "@webtui/css/components/badge.css";
 @import "@webtui/css/utils/box.css";
 /*@import "@webtui/css/components/typography.css";*/
+@import "./themes.css";
 
 /* Override UnoCSS reset for WebTUI boxes */
 [box-]::before,

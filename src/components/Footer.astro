@@ -1,0 +1,115 @@
+---
+import { gitInfo, REPO_URL } from "@/utils/git";
+
+const path = Astro.url.pathname.replace(/\/$/, "");
+const file = `~${path || "/"}`;
+const commitUrl = gitInfo.sha ? `${REPO_URL}/commit/${gitInfo.sha}` : REPO_URL;
+---
+
+<footer class="statusline bg-1 mt-2lh flex h-lh items-stretch justify-between whitespace-nowrap">
+  <div class="flex min-w-0 items-stretch">
+    <span class="seg seg-branch">
+      <span class="i-pixel-branch" aria-hidden="true"></span>
+      {gitInfo.branch}
+    </span>
+    <span class="text-fg-1 flex min-w-0 items-center px-1 max-sm:hidden">
+      <span class="truncate">{file}</span>
+    </span>
+  </div>
+
+  <div class="flex shrink-0 items-stretch">
+    <button type="button" class="seg-r seg-theme cursor-pointer" id="theme-toggle" title="Change theme">
+      <span class="i-pixel-paint-brush" aria-hidden="true"></span>
+      <span id="theme-name">light</span>
+    </button>
+    {
+      gitInfo.shortSha && (
+        <a
+          href={commitUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="seg-r seg-commit"
+          title="Last commit"
+        >
+          ~{gitInfo.shortSha}
+        </a>
+      )
+    }
+    <a
+      href={REPO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="seg-r seg-source font-bold"
+      title="Source code"
+    >
+      <span class="i-pixel-code" aria-hidden="true"></span>
+      source
+    </a>
+  </div>
+</footer>
+
+<style>
+  .seg,
+  .seg-r {
+    display: flex;
+    align-items: center;
+    gap: 1ch;
+    padding-inline: 1ch;
+  }
+
+  .seg-r {
+    transition: filter 0.2s;
+  }
+
+  .seg-r:hover,
+  .seg-r:focus-visible {
+    filter: invert(1);
+    outline: none;
+  }
+
+  .seg-source {
+    background-color: var(--foreground0);
+    color: var(--background0);
+  }
+
+  .seg-branch,
+  .seg-commit {
+    background-color: var(--background2);
+    color: var(--foreground0);
+  }
+
+  .seg-theme {
+    background-color: var(--color-blue-0);
+    color: var(--background0);
+  }
+
+  @media (max-width: 479px) {
+    .seg-branch {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const THEMES = ["light", "catppuccin", "gruvbox"];
+  const root = document.documentElement;
+  const button = document.getElementById("theme-toggle");
+  const label = document.getElementById("theme-name");
+
+  function apply(theme: string) {
+    if (theme === "light") delete root.dataset.theme;
+    else root.dataset.theme = theme;
+    if (label) label.textContent = theme;
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {}
+  }
+
+  const current = root.dataset.theme ?? "light";
+  if (label) label.textContent = THEMES.includes(current) ? current : "light";
+
+  button?.addEventListener("click", () => {
+    const now = root.dataset.theme ?? "light";
+    apply(THEMES[(THEMES.indexOf(now) + 1) % THEMES.length]);
+  });
+</script>

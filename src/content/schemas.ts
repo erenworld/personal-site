@@ -30,7 +30,7 @@ export const interviewSchema = z.object({
   date: z.coerce.date(),
   guest: z.string(),
   company: z.string(),
-  guestUrl: z.string().url().default("https://databasestory.com"),
+  guestUrl: z.string().url().optional(),
   slides: z
     .union([
       z.number(),

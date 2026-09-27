@@ -54,15 +54,20 @@ const HeadingTag = headingLevel;
     <ul class:list={["grid grid-cols-[auto_auto_1fr]", gapClass, className]}>
       {items.map((item) => {
         const isExternal = item.slug.startsWith("http");
+        const isLinkable = item.slug !== "";
+        const Wrapper = isLinkable ? "a" : "div";
         return (
         <li class="contents before:content-none">
-          <a
-            href={item.slug}
-            target={isExternal ? "_blank" : undefined}
-            rel={isExternal ? "noopener noreferrer" : undefined}
-            data-nav-item
+          <Wrapper
+            href={isLinkable ? item.slug : undefined}
+            target={isLinkable && isExternal ? "_blank" : undefined}
+            rel={isLinkable && isExternal ? "noopener noreferrer" : undefined}
+            data-nav-item={isLinkable ? true : undefined}
             data-tags={item.tags?.join(",")}
-            class="bg-0 hocus:invert group col-span-3 md:-mx-[1ch] grid grid-cols-subgrid md:px-[1ch] outline-none"
+            class:list={[
+              "col-span-3 md:-mx-[1ch] grid grid-cols-subgrid md:px-[1ch] outline-none",
+              isLinkable ? "bg-0 hocus:invert group" : "group opacity-60",
+            ]}
           >
             {columns.map((col) => {
               if (col === "code") {
@@ -111,7 +116,7 @@ const HeadingTag = headingLevel;
               }
               return null;
             })}
-          </a>
+          </Wrapper>
         </li>
         );
       })}

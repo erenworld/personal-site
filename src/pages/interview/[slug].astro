@@ -52,14 +52,18 @@ if (hasInteractiveLayout) {
       <h1 class="mb-0 font-bold">{displayTitle}</h1>
 
       <div class="flex gap-[1ch] justify-end">
-        <a
-          href={talk.data.guestUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-fg-2 hocus:text-accent underline"
-        >
-          databasestory.com
-        </a>
+        {talk.data.guestUrl ? (
+          <a
+            href={talk.data.guestUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-fg-2 hocus:text-accent underline"
+          >
+            databasestory.com
+          </a>
+        ) : (
+          <span class="text-fg-2">soon</span>
+        )}
       </div>
 
       <div class="flex gap-[1ch]">

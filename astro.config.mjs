@@ -17,7 +17,8 @@ export default defineConfig({
     mdx({
       syntaxHighlight: "shiki",
       shikiConfig: {
-        theme: "github-light",
+        themes: { light: "github-light", catppuccin: "catppuccin-mocha", gruvbox: "gruvbox-dark-medium" },
+        defaultColor: "light",
       },
     }),
     sitemap(),
@@ -36,7 +37,8 @@ export default defineConfig({
       features: { directive: true, gfm: true },
     }),
     shikiConfig: {
-      theme: "github-dark",
+      themes: { light: "github-light", catppuccin: "catppuccin-mocha", gruvbox: "gruvbox-dark-medium" },
+      defaultColor: "light",
     },
   },
   devToolbar: {

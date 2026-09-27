@@ -1,0 +1,40 @@
+/* Neovim colorschemes, toggled via <html data-theme="..."> (default: light) */
+
+/* Let code blocks use the theme's --background1 instead of Shiki's inline background */
+.astro-code {
+  background-color: transparent !important;
+}
+
+:root[data-theme="catppuccin"] .astro-code,
+:root[data-theme="catppuccin"] .astro-code span {
+  color: var(--shiki-catppuccin) !important;
+}
+
+:root[data-theme="gruvbox"] .astro-code,
+:root[data-theme="gruvbox"] .astro-code span {
+  color: var(--shiki-gruvbox) !important;
+}
+
+:root[data-theme="catppuccin"] {
+  color-scheme: dark;
+  --background0: #1e1e2e;
+  --background1: #313244;
+  --background2: #45475a;
+  --background3: #585b70;
+  --foreground0: #cdd6f4;
+  --foreground1: #bac2de;
+  --foreground2: #7f849c;
+  --color-blue-0: #89b4fa;
+}
+
+:root[data-theme="gruvbox"] {
+  color-scheme: dark;
+  --background0: #282828;
+  --background1: #3c3836;
+  --background2: #504945;
+  --background3: #665c54;
+  --foreground0: #ebdbb2;
+  --foreground1: #d5c4a1;
+  --foreground2: #928374;
+  --color-blue-0: #fabd2f;
+}

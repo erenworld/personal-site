@@ -14,12 +14,15 @@ const interviews = (await getCollection("interview"))
   }))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// Transform interviews for LinkList - each guest links out to their databasestory.com episode
+// Transform interviews for LinkList - each guest links out to their databasestory.com episode,
+// unless the episode isn't published yet, in which case the row is non-clickable
 const linkListItems: LinkListItem[] = interviews.map((interview) => {
-  const date = `${interview.data.date.getFullYear()}-${String(interview.data.date.getMonth() + 1).padStart(2, "0")}-${String(interview.data.date.getDate()).padStart(2, "0")}`;
+  const date = interview.data.guestUrl
+    ? `${interview.data.date.getFullYear()}-${String(interview.data.date.getMonth() + 1).padStart(2, "0")}-${String(interview.data.date.getDate()).padStart(2, "0")}`
+    : "soon";
   return {
     code: interview.code,
-    slug: interview.data.guestUrl,
+    slug: interview.data.guestUrl ?? "",
     title: `Interview with ${interview.data.guest} from ${interview.data.company}`,
     date,
   };
