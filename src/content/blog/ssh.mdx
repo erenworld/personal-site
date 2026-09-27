@@ -1,0 +1,37 @@
+---
+date: "2023-01-01"
+title: "How to set up SSH with GitHub in 60 seconds"
+---
+
+When I started programming, SSH keys scared me. Everyone seemed to know how they worked except me, and I was too embarrassed to ask.
+
+It turns out there's not much to it. You make a key, you give the public half to GitHub, and you're done.
+
+Make the key:
+
+```
+ssh-keygen -t ed25519 -C "you@example.com"
+```
+
+Load it:
+
+```
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+Print the public half and paste it into GitHub under Settings → SSH keys:
+
+```
+cat ~/.ssh/id_ed25519.pub
+```
+
+Check that it worked:
+
+```
+ssh -T git@github.com
+```
+
+If GitHub says hi, you're in.
+
+That's it.
