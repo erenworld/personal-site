@@ -5,6 +5,7 @@ import LinkList from "@/components/LinkList.astro";
 import type { LinkListItem } from "@/components/LinkList.astro";
 import Layout from "@/layouts/Layout.astro";
 import { Code } from "@/utils/code";
+import { TAG_DESCRIPTIONS } from "@/consts";
 
 // Get all blog posts
 const publishedPosts = (
@@ -67,7 +68,7 @@ const linkListItems: LinkListItem[] = publishedPosts.map((post) => {
                 clear
               </a>
               {sortedTags.map(({ tag, count }) => (
-                <Tag tag={tag} count={count} url="/blog" />
+                <Tag tag={tag} count={count} url="/blog" description={TAG_DESCRIPTIONS[tag]} />
               ))}
             </div>
           </div>
@@ -109,8 +110,9 @@ const linkListItems: LinkListItem[] = publishedPosts.map((post) => {
     document.querySelectorAll<HTMLAnchorElement>("a[data-nav-item]").forEach((el) => {
       const tags = (el.dataset.tags || "").split(",").filter(Boolean);
       const show = !selected || tags.includes(selected);
+      // Inline style, since the li's `contents` class overrides the `hidden` attribute
       const li = el.closest("li");
-      if (li) (li as HTMLElement).hidden = !show;
+      if (li) li.style.display = show ? "" : "none";
     });
   }
 

@@ -8,6 +8,7 @@ import BlueskyComments from "@/components/BlueskyComments.astro";
 import MDContent from "@/components/MDContent.astro";
 import Layout from "@/layouts/Layout.astro";
 import { Code } from "@/utils/code";
+import { TAG_DESCRIPTIONS } from "@/consts";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -49,10 +50,10 @@ const code = post.data.code ? post.data.code.toUpperCase() : Code.fromDate(post.
                 <div class="i-pixel-tag" />
                 <span>{post.data.tags.length}</span>
               </button>
-              <div class="tag-list hidden absolute right-0 top-full pt-1 z-10">
+              <div class="tag-list hidden absolute right-0 top-full pt-1 z-10 w-max max-w-[40ch]">
                 <div class="flex flex-wrap gap-2 bg-1 px-2 py-1">
                   {post.data.tags.map((tag) => (
-                    <Tag tag={tag} url="/blog" />
+                    <Tag tag={tag} url="/blog" description={TAG_DESCRIPTIONS[tag]} />
                   ))}
                 </div>
               </div>
