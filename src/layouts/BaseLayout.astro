@@ -1,0 +1,61 @@
+---
+import { ClientRouter } from "astro:transitions";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.vue";
+import Footer from "../components/Footer.vue";
+import PageOperate from "../components/PageOperate.vue";
+
+const {
+  pageNav = false,
+  pageOperate = false,
+  width = "max-w-3xl",
+  tags = [],
+  next,
+  comments = false,
+  articleSchema,
+  ...head
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead {...head} articleSchema={articleSchema} />
+    <ClientRouter />
+  </head>
+  <body class="bg-main text-main min-h-screen font-sans w-full">
+    <Header client:load pathname={Astro.url.pathname} />
+    <main class:list={["grow mx-auto py-10 px-6", width]}>
+      <slot />
+      {
+        pageOperate && (
+          <div mt-8>
+            <PageOperate
+              client:load
+              showShare={head.pageType === "article"}
+              url={Astro.url}
+              tags={tags}
+              next={next}
+            />
+          </div>
+        )
+      }
+      {
+        comments && (
+          <div class="mt-4 pt-4 border-t border-gray-200">
+            <script
+              src="https://utteranc.es/client.js"
+              repo="erenworld/personal-site"
+              issue-term="url"
+              label="comment"
+              theme="github-light"
+              crossorigin="anonymous"
+              async
+            />
+          </div>
+        )
+      }
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteConfig from "../site-config";
+import ListPosts from "../components/ListPosts.vue";
+import { getPosts } from "../utils/posts";
+
+const posts = await getPosts("blog");
+const interviews = await getPosts("interview");
+---
+
+<BaseLayout description={siteConfig.description} image={siteConfig.image}>
+  <div class="text-xl mt-8">
+    <div class="mb-8 text-3xl">
+      <h1
+        id="hello"
+        class="xl:text-9xl md:text-7xl text-6xl font-neucha text-[#eaeaea] dark:text-[#474747] relative -ml-2 -mb-4 xl:-ml-18 xl:-mb-12 -z-10"
+      >
+        hi !
+      </h1>
+      <p
+        class="text-slate-900 text-2xl sm:text-3xl lg:text-4xl tracking-tight dark:text-white"
+      >
+        I'm <span id="name">Eren</span>, and I build software<br />
+      </p>
+    </div>
+    <div class="details">
+      <p>
+        I'm currently an intern at <a
+          href="https://radome.io"
+          class="prose-link"
+          target="_blank"
+          rel="noopener noreferrer">Radome</a
+        >, where I work on agents for compliance.
+      </p>
+      <p style="margin-top: 16px">
+        Previously, I worked at <a
+          href="https://kolizeo.fr"
+          class="prose-link"
+          target="_blank"
+          rel="noopener noreferrer">Kolizeo</a
+        >, building products for the sports industry.
+      </p>
+      <p style="margin-top: 16px">
+        Besides my studies and internship, I host <a
+          href="https://databasestory.com"
+          class="prose-link"
+          target="_blank"
+          rel="noopener noreferrer">Database Story</a
+        >.
+      </p>
+    </div>
+    <div mt-16>
+      <h1
+        class="xl:text-7xl md:text-6xl text-4xl font-neucha text-[#eaeaea] dark:text-[#474747] relative -ml-2 -mb-4 xl:-ml-18 xl:-mb-8 -z-10"
+      >
+        blog
+      </h1>
+      <ListPosts list={posts as any[]} mini={true} />
+    </div>
+    <div mt-8>
+      <h1
+        class="xl:text-7xl md:text-6xl text-4xl font-neucha text-[#eaeaea] dark:text-[#474747] relative -ml-2 -mb-4 xl:-ml-18 xl:-mb-8 -z-10"
+      >
+        interview
+      </h1>
+      <ListPosts list={interviews as any[]} mini={true} />
+    </div>
+  </div>
+</BaseLayout>

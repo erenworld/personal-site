@@ -1,0 +1,126 @@
+.prose .expressive-code + .expressive-code {
+  margin-top: 1.25em;
+}
+
+html.dark .astro-code,
+html.dark .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+.prose a {
+  --at-apply: prose-link;
+}
+
+.prose img {
+    width: 100;
+    margin: 0 auto;
+}
+
+.prose .twitter-tweet {
+  width: 100;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   Blockquote Styling
+   ========================================== */
+
+.prose blockquote {
+  border-left: 3px solid #3b82f6;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #4b5563;
+}
+
+html.dark .prose blockquote {
+  color: #9ca3af;
+}
+
+/* ==========================================
+   Table Styling
+   ========================================== */
+
+/* Base table styles */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 1.5rem 0;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Header styles */
+.prose th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+/* Cell styles */
+.prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+
+/* Zebra striping */
+.prose tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Hover state */
+.prose tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* Dark mode table styles */
+html.dark .prose th {
+  background-color: #1e1e1e;
+  border-bottom-color: #374151;
+  color: #e5e5e5;
+}
+
+html.dark .prose td {
+  border-bottom-color: #374151;
+}
+
+html.dark .prose tbody tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
+
+html.dark .prose tbody tr:hover {
+  background-color: #262626;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .prose th,
+  .prose td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+}
+/* ==========================================
+   Mermaid Styling
+   ========================================== */
+
+/* Mermaid sizes label boxes before the SVG lands in .prose, so prose
+   margins and line-height on the label <p> push text out of its box. */
+.prose .mermaid foreignObject div,
+.prose .mermaid foreignObject span,
+.prose .mermaid foreignObject p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}

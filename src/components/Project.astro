@@ -1,0 +1,50 @@
+---
+import { render } from "astro:content";
+import ListTopics from "./ListTopics.vue";
+
+const { page } = Astro.props;
+const { title, image, description, status, url, repository, date } = page.data;
+const imageSrc = `/assets/projects/${image}`;
+const href = url ?? repository;
+
+function getDate(date: string) {
+  const d = new Date(date);
+  const options = { year: "numeric", month: "long" };
+  const formatter = new Intl.DateTimeFormat("en-US", options as any);
+  return formatter.format(d);
+}
+
+// Most project bodies repeat the description, which would show the same line twice.
+const normalize = (text = "") => text.trim().replace(/\.$/, "").toLowerCase();
+const bodyRepeatsDescription = normalize(page.body) === normalize(description);
+
+const { Content } = await render(page);
+---
+
+<div>
+  <div class="text-2xl lh-normal text-main">
+    {href ? <a href={href} class="prose-link" target="_blank" rel="noopener noreferrer">{title}</a> : title}
+  </div>
+  <div class="flex items-center gap-1 flex-wrap">
+    <div class="text-gray-400 text-main flex-none">
+      <time datetime={getDate(date)}>{getDate(date)}</time>
+    </div>
+    <div class="flex gap-1 items-center">
+      <div>·</div>
+      <ListTopics topics={[status]} />
+    </div>
+  </div>
+  {image && (
+    <div class="my-4">
+      <img src={imageSrc} alt={title} class="rounded-xl">
+    </div>
+  )}
+  <div class="text-xl text-main text-gray-400 mt-2">
+    {description}
+  </div>
+  {!bodyRepeatsDescription && (
+    <div class="max-w-none prose">
+      <Content />
+    </div>
+  )}
+</div>

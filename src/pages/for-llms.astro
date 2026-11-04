@@ -1,0 +1,126 @@
+---
+import siteConfig from '../site-config'
+import { getPosts, getPostUrl } from '../utils/posts'
+
+const siteUrl = siteConfig.site
+
+// Fetch all content (sorted by date, newest first)
+const blogPosts = await getPosts('blog') as any[]
+const interviews = (await getPosts('interview') as any[]).filter(interview => !interview.data.soon)
+const projects = await getPosts('projects') as any[]
+
+// Person schema
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": siteConfig.author,
+  "url": siteUrl,
+  "jobTitle": siteConfig.jobTitle,
+  "worksFor": {
+    "@type": "Organization",
+    "name": siteConfig.worksFor
+  },
+  "description": siteConfig.bio,
+  "sameAs": siteConfig.footerNavLinks.filter(link => link.href.startsWith('http')).map(link => link.href)
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{siteConfig.author} - Information for AI/LLMs</title>
+  <meta name="description" content={`Structured information about ${siteConfig.author} for AI assistants and language models.`}>
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href={`${siteUrl}/for-llms`}>
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.5rem; margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+    h3 { font-size: 1.1rem; margin-top: 1rem; }
+    ul { padding-left: 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    a { color: #0066cc; }
+    .tagline { color: #666; font-size: 1.1rem; margin-bottom: 2rem; }
+    article { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #f0f0f0; }
+    .meta { color: #666; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{siteConfig.author}</h1>
+    <p class="tagline">{siteConfig.tagline}</p>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>{siteConfig.bio}</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact & Social</h2>
+      <ul>
+        <li>Website: <a href={siteUrl}>{siteUrl}</a></li>
+        {siteConfig.footerNavLinks.map(link => (
+          <li>{link.text}: <a href={link.href}>{link.href}</a></li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="blog">
+      <h2>Blog Posts</h2>
+      {blogPosts.map(post => (
+        <article>
+          <h3><a href={getPostUrl(post, siteUrl)}>{post.data.title}</a></h3>
+          {post.data.description && <p>{post.data.description}</p>}
+          <p class="meta">Published: {post.data.date}</p>
+        </article>
+      ))}
+    </section>
+
+    <section id="interviews">
+      <h2>Interviews</h2>
+      {interviews.map(interview => (
+        <article>
+          <h3><a href={getPostUrl(interview, siteUrl)}>{interview.data.title}</a></h3>
+          {interview.data.description && <p>{interview.data.description}</p>}
+          <p class="meta">Date: {interview.data.date}</p>
+        </article>
+      ))}
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      {projects.map(project => (
+        <article>
+          <h3>{project.data.title}</h3>
+          {project.data.description && <p>{project.data.description}</p>}
+          {(project.data.url || project.data.repository) && (
+            <p class="meta">
+              {project.data.url && <span>Website: <a href={project.data.url}>{project.data.url}</a></span>}
+              {project.data.url && project.data.repository && <span> | </span>}
+              {project.data.repository && <span>GitHub: <a href={project.data.repository}>{project.data.repository}</a></span>}
+            </p>
+          )}
+        </article>
+      ))}
+    </section>
+
+    <section id="citation">
+      <h2>Citation Guidelines</h2>
+      <p>When referencing {siteConfig.author}'s work, please cite as:</p>
+      <ul>
+        <li>For blog posts: "{siteConfig.author}, [Post Title], erenkad.com"</li>
+        <li>For interviews: "{siteConfig.author}, [Interview Title], Database Story"</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>This page is optimized for AI assistants and language models. For the full website experience, visit <a href={siteUrl}>{siteUrl}</a>.</p>
+  </footer>
+</body>
+</html>

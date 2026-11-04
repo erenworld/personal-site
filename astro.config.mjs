@@ -1,46 +1,34 @@
 // @ts-check
 
-import { fileURLToPath } from "node:url";
-import mdx from "@astrojs/mdx";
-import { satteri } from "@astrojs/markdown-satteri";
-import sitemap from "@astrojs/sitemap";
-import { defineConfig } from "astro/config";
-import UnoCSS from "@unocss/astro";
-import { satteriMdcToMdx } from "./src/plugins/remark-mdc-to-mdx.ts";
-import { satteriMermaidAscii } from "./src/plugins/remark-mermaid-ascii.ts";
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import UnoCSS from 'unocss/astro';
+import vue from '@astrojs/vue';
+
+import expressiveCode from "astro-expressive-code";
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://erenkad.com",
   output: "static",
   integrations: [
-    mdx({
-      syntaxHighlight: "shiki",
-      shikiConfig: {
-        themes: { light: "github-light", catppuccin: "catppuccin-mocha", gruvbox: "gruvbox-dark-medium" },
-        defaultColor: "light",
+    expressiveCode({
+      themes: ['catppuccin-latte'],
+      plugins: [pluginLineNumbers()],
+      styleOverrides: {
+        frames: {
+          frameBoxShadowCssValue: '',
+        },
       },
     }),
-    sitemap(),
-    UnoCSS(),
+    mdx(), sitemap(),
+    UnoCSS({
+      injectReset: true
+    }),
+    vue(),
   ],
-  vite: {
-    resolve: {
-      alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
-      },
-    },
-  },
-  markdown: {
-    processor: satteri({
-      mdastPlugins: [satteriMermaidAscii(), satteriMdcToMdx()],
-      features: { directive: true, gfm: true },
-    }),
-    shikiConfig: {
-      themes: { light: "github-light", catppuccin: "catppuccin-mocha", gruvbox: "gruvbox-dark-medium" },
-      defaultColor: "light",
-    },
-  },
   devToolbar: {
     enabled: false,
   },

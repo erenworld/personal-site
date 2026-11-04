@@ -1,20 +1,39 @@
-import { getCollection } from "astro:content";
-import rss from "@astrojs/rss";
-import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
-import { Code } from "@/utils/code";
+import rss from '@astrojs/rss'
+import { marked } from 'marked'
+import siteConfig from '../site-config'
+import { getAllPosts, getPostUrl } from '../utils/posts'
+
+// Strip MDX-specific imports and components from content
+function cleanMdxContent(content) {
+  if (!content) return ''
+  return content
+    // Remove import statements
+    .replace(/^import\s+.*?from\s+['"].*?['"];?\s*$/gm, '')
+    // Remove JSX-style component tags (self-closing and with content)
+    .replace(/<[A-Z][a-zA-Z]*\s*[^>]*\/>/g, '')
+    .replace(/<[A-Z][a-zA-Z]*\s*[^>]*>[\s\S]*?<\/[A-Z][a-zA-Z]*>/g, '')
+    // Clean up excessive newlines
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+}
 
 export async function GET(context) {
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  const posts = (await getAllPosts()).filter(item => !item.data.soon)
+
   return rss({
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    site: context.site,
-    stylesheet: "/rss.xsl",
-    items: posts.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
-      description: post.data.description,
-      link: Code.buildUrl("blog", post.data.code, post.id),
-    })),
-  });
+    title: siteConfig.title,
+    description: siteConfig.description,
+    site: context.site || siteConfig.site,
+    items: posts.map((item) => {
+      const cleanContent = cleanMdxContent(item.body)
+      return {
+        title: item.data.title,
+        description: item.data.description,
+        link: getPostUrl(item),
+        pubDate: new Date(item.data.date),
+        author: `${siteConfig.author}`,
+        content: marked.parse(cleanContent),
+      }
+    }),
+  })
 }

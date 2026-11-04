@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ListPosts from '../components/ListPosts.vue'
+import { getPosts } from '../utils/posts'
+
+const posts = await getPosts('interview')
+---
+
+<BaseLayout
+  title="Interview"
+  description="My interviews with the people who build databases."
+  pageNav={true}
+  pageOperate={true}
+>
+  <ListPosts list={posts as any[]} />
+</BaseLayout>
