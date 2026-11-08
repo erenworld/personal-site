@@ -55,9 +55,23 @@ const interviews = await getPosts("interview");
       >
         me in ten seconds
       </h1>
-      <ul class="space-y-3">
+      <ul
+        class="space-y-3 list-disc pl-6 marker:text-gray-300 dark:marker:text-neutral-600"
+      >
         <li>
-          <span>Born in France to Turkish and Bulgarian parents.</span>
+          <span
+            >Born in France to <a
+              href="https://en.wikipedia.org/wiki/Turkish_people"
+              class="prose-link"
+              target="_blank"
+              rel="noopener noreferrer">Turkish</a
+            > and <a
+              href="https://fr.wikipedia.org/wiki/Pomaks"
+              class="prose-link"
+              target="_blank"
+              rel="noopener noreferrer">Pomak</a
+            > parents.</span
+          >
         </li>
         <li>
           <span>
@@ -79,6 +93,9 @@ const interviews = await getPosts("interview");
         </li>
         <li>
           <span>Interviewer and good listener at Database Story.</span>
+        </li>
+        <li>
+          <span>Always in the middle of a book, usually a biography.</span>
         </li>
         <li>
           <span>An optimist, to an almost unreasonable degree.</span>
