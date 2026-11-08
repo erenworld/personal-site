@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const updated = "November 8, 2026";
+---
+
+<BaseLayout title="Now" description="What I'm up to these days.">
+  <h1 class="text-title mb-2">Now</h1>
+  <p class="opacity-50 text-sm mb-8 sm:mb-12">Updated {updated}</p>
+  <div class="prose">
+    <p>
+      On Thursdays and Fridays I'm at <a
+        href="https://radome.io"
+        target="_blank"
+        rel="noopener noreferrer">Radome</a
+      >, where I'm interning. I work on the web platform, the part people
+      actually use to handle their compliance.
+    </p>
+
+    <p>
+      The rest of the week I study databases, and mostly PostgreSQL. I'm
+      digging into how it works under the hood.
+    </p>
+
+    <p>
+      In the evenings I'm slowly going through <em>L'Art invisible</em>, and
+      I'm watching <em>Dark</em>. I'm at the point where I need a notebook to
+      keep track of who is whose father.
+    </p>
+
+    <p>
+      Every Sunday I go walk in the forest. No phone, no music, nothing. Just
+      me and the trees for a few hours. It has become the part of the week I
+      look forward to the most.
+    </p>
+
+    <p>
+      I'm also trying to get my Bulgarian back. My parents speak it to me and I
+      understand pretty much everything, but when it's my turn to talk, I
+      struggle to hold a long conversation. So I'm working on that, one
+      sentence at a time.
+    </p>
+  </div>
+  <p class="opacity-50 text-sm mt-12">
+    This is a <a class="prose-link" href="https://nownownow.com/about"
+      >now page</a
+    >.
+  </p>
+</BaseLayout>

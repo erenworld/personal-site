@@ -24,6 +24,10 @@ export const siteConfig = {
       text: 'projects',
       href: '/projects',
     },
+    {
+      text: 'now',
+      href: '/now',
+    },
   ],
   footerNavLinks: [
     {
