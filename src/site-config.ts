@@ -15,18 +15,22 @@ export const siteConfig = {
     {
       text: 'blog',
       href: '/blog',
+      icon: 'pen',
     },
     {
       text: 'interview',
       href: '/interview',
+      icon: 'mic',
     },
     {
       text: 'projects',
       href: '/projects',
+      icon: 'layers',
     },
     {
       text: 'now',
       href: '/now',
+      icon: 'user',
     },
   ],
   footerNavLinks: [
