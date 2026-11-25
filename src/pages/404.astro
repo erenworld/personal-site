@@ -1,0 +1,357 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pens = [
+  { name: "Black", color: "#1f2937" },
+  { name: "Red", color: "#e5383b" },
+  { name: "Orange", color: "#fb8500" },
+  { name: "Yellow", color: "#ffc300" },
+  { name: "Green", color: "#2a9d5c" },
+  { name: "Blue", color: "#0284c7" },
+  { name: "Purple", color: "#8b5cf6" },
+  { name: "Pink", color: "#f472b6" },
+];
+const initial = "Blue";
+---
+
+<BaseLayout title="404" description="Page not found." footer={false}>
+  <h1 class="text-title mb-2">404</h1>
+  <p class="opacity-50 mb-8">
+    This page is blank. Take a pen and draw something on it.
+  </p>
+  <p><a class="prose-link" href="/">Back home</a></p>
+
+  <canvas id="drawing" aria-hidden="true"></canvas>
+
+  <div class="pens" id="pens" role="group" aria-label="Pens">
+    {
+      pens.map(({ name, color }) => (
+        <button
+          type="button"
+          class="pen"
+          data-color={color}
+          aria-label={`${name} pen`}
+          aria-pressed={name === initial ? "true" : "false"}
+          style={`--ink: ${color}`}
+        >
+          <svg viewBox="0 0 24 84" aria-hidden="true">
+            <path class="ink" d="M10 1.5 Q12 0 14 1.5 L15.5 12 H8.5 Z" />
+            <path class="neck" d="M8 12 H16 L18.5 25 H5.5 Z" />
+            <rect class="ink" x="4" y="25" width="16" height="7" rx="1" />
+            <rect class="barrel" x="4" y="31" width="16" height="53" />
+            <rect class="ink" x="4" y="44" width="16" height="22" />
+            <rect class="shine" x="6.5" y="25" width="2.5" height="59" />
+            <rect class="shade" x="16.5" y="25" width="3.5" height="59" />
+          </svg>
+        </button>
+      ))
+    }
+    <button type="button" class="clear" id="clear">clear</button>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  /* Only while this page is showing: drawing shouldn't select text or scroll on touch */
+  html:has(#drawing) {
+    touch-action: pinch-zoom;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+  }
+
+  html:has(#drawing) body {
+    position: relative;
+    padding-bottom: 96px;
+  }
+
+  #drawing {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    pointer-events: none;
+  }
+</style>
+
+<style>
+  .pens {
+    position: fixed;
+    z-index: 20;
+    left: 50%;
+    bottom: 0;
+    translate: -50% 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 84px;
+    padding: 0 8px;
+    overflow: hidden;
+    cursor: default;
+  }
+
+  .pen {
+    width: 28px;
+    height: 84px;
+    padding: 0 2px;
+    cursor: pointer;
+    translate: 0 34px;
+    transition: translate 180ms ease;
+  }
+
+  .pen:hover {
+    translate: 0 26px;
+  }
+
+  .pen[aria-pressed="true"] {
+    translate: 0 8px;
+  }
+
+  .pen svg {
+    display: block;
+    width: 24px;
+    height: 84px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18));
+  }
+
+  .ink {
+    fill: var(--ink);
+  }
+
+  .neck {
+    fill: #d9dade;
+  }
+
+  .barrel {
+    fill: #f6f6f4;
+  }
+
+  .shine {
+    fill: #fff;
+    opacity: 0.35;
+  }
+
+  .shade {
+    fill: #000;
+    opacity: 0.1;
+  }
+
+  .clear {
+    margin-left: 8px;
+    padding: 8px 4px 14px;
+    font-size: 14px;
+    color: #999;
+    cursor: pointer;
+  }
+
+  .clear:hover {
+    color: #000;
+  }
+
+  .pen:focus-visible,
+  .clear:focus-visible {
+    outline: 2px solid #333;
+    outline-offset: -2px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 400px) {
+    .pens {
+      gap: 1px;
+      padding: 0 4px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pen {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const LINE_WIDTH = 5;
+
+  // x is measured from the middle of the page, so drawings follow the content on resize
+  type Point = { x: number; y: number };
+  type Stroke = { color: string; points: Point[] };
+
+  let stop: (() => void) | undefined;
+
+  function start() {
+    stop?.();
+    stop = undefined;
+
+    const canvas = document.querySelector<HTMLCanvasElement>("#drawing");
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+
+    const pens = [...document.querySelectorAll<HTMLButtonElement>(".pen")];
+    let strokes: Stroke[] = [];
+    // What was on the page before each stroke or clear, for undo
+    const history: Stroke[][] = [];
+    const active = new Map<number, Stroke>();
+    const controller = new AbortController();
+    const { signal } = controller;
+    let color = "";
+    let middle = 0;
+
+    function pick(pen: HTMLButtonElement) {
+      color = pen.dataset.color!;
+      for (const other of pens) other.setAttribute("aria-pressed", String(other === pen));
+      const tip = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M2 22 L5 14 L16 3 Q18 1 20 3 L21 4 Q23 6 21 8 L10 19 Z" fill="${color}" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
+      document.documentElement.style.cursor = `url("data:image/svg+xml,${encodeURIComponent(tip)}") 2 22, crosshair`;
+    }
+
+    // Draws the last stretch of a stroke, curving through the midpoints between points
+    function drawSegment({ color, points }: Stroke, i: number) {
+      const at = points[i];
+      if (i === 0) {
+        // A line of no length draws nothing, and a tap should leave a dot
+        ctx!.fillStyle = color;
+        ctx!.beginPath();
+        ctx!.arc(middle + at.x, at.y, LINE_WIDTH / 2, 0, Math.PI * 2);
+        ctx!.fill();
+        return;
+      }
+      const from = points[i - 1];
+      const before = points[i - 2] ?? from;
+      ctx!.strokeStyle = color;
+      ctx!.lineWidth = LINE_WIDTH;
+      ctx!.lineCap = ctx!.lineJoin = "round";
+      ctx!.beginPath();
+      ctx!.moveTo(middle + (before.x + from.x) / 2, (before.y + from.y) / 2);
+      ctx!.quadraticCurveTo(
+        middle + from.x,
+        from.y,
+        middle + (from.x + at.x) / 2,
+        (from.y + at.y) / 2,
+      );
+      ctx!.stroke();
+    }
+
+    function redraw() {
+      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
+      for (const stroke of strokes) stroke.points.forEach((_, i) => drawSegment(stroke, i));
+    }
+
+    function resize() {
+      // Collapsed first, so the canvas itself never holds the page open
+      canvas!.style.width = canvas!.style.height = "0";
+      const root = document.documentElement;
+      const width = root.clientWidth;
+      const height = Math.max(root.scrollHeight, root.clientHeight);
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas!.style.width = `${width}px`;
+      canvas!.style.height = `${height}px`;
+      canvas!.width = width * ratio;
+      canvas!.height = height * ratio;
+      ctx!.setTransform(ratio, 0, 0, ratio, 0, 0);
+      middle = width / 2;
+      redraw();
+    }
+
+    function extend(stroke: Stroke, event: PointerEvent) {
+      stroke.points.push({ x: event.pageX - middle, y: event.pageY });
+      drawSegment(stroke, stroke.points.length - 1);
+    }
+
+    for (const pen of pens) {
+      pen.addEventListener("click", () => pick(pen), { signal });
+      if (pen.getAttribute("aria-pressed") === "true") pick(pen);
+    }
+
+    document.querySelector("#clear")!.addEventListener(
+      "click",
+      () => {
+        if (!strokes.length) return;
+        history.push(strokes);
+        strokes = [];
+        redraw();
+      },
+      { signal },
+    );
+
+    window.addEventListener(
+      "pointerdown",
+      (event) => {
+        if (event.button !== 0) return;
+        // Links and the pens keep working normally
+        if ((event.target as Element).closest("a, button, .pens")) return;
+        const stroke = { color, points: [] };
+        history.push([...strokes]);
+        strokes.push(stroke);
+        active.set(event.pointerId, stroke);
+        extend(stroke, event);
+      },
+      { signal },
+    );
+
+    window.addEventListener(
+      "pointermove",
+      (event) => {
+        const stroke = active.get(event.pointerId);
+        if (!stroke) return;
+        const events = event.getCoalescedEvents?.() ?? [];
+        for (const e of events.length ? events : [event]) extend(stroke, e);
+      },
+      { signal },
+    );
+
+    const lift = (event: PointerEvent) => {
+      const stroke = active.get(event.pointerId);
+      if (!stroke) return;
+      active.delete(event.pointerId);
+      // Segments stop halfway to the latest point, so repeat it to finish the line
+      stroke.points.push(stroke.points[stroke.points.length - 1]);
+      drawSegment(stroke, stroke.points.length - 1);
+    };
+    window.addEventListener("pointerup", lift, { signal });
+    // The browser took the touch over, usually for a pinch: drop what it had started
+    window.addEventListener(
+      "pointercancel",
+      (event) => {
+        const stroke = active.get(event.pointerId);
+        if (!stroke) return;
+        active.delete(event.pointerId);
+        strokes = strokes.filter((other) => other !== stroke);
+        history.pop();
+        redraw();
+      },
+      { signal },
+    );
+    // iOS can still bounce the page under a finger; two fingers are left alone for zooming
+    window.addEventListener(
+      "touchmove",
+      (event) => {
+        if (active.size && event.touches.length === 1 && event.cancelable) event.preventDefault();
+      },
+      { signal, passive: false },
+    );
+    window.addEventListener(
+      "keydown",
+      (event) => {
+        if (!(event.ctrlKey || event.metaKey) || event.shiftKey || event.altKey) return;
+        if (event.key.toLowerCase() !== "z" || active.size) return;
+        event.preventDefault();
+        strokes = history.pop() ?? strokes;
+        redraw();
+      },
+      { signal },
+    );
+    window.addEventListener("resize", resize, { signal });
+    resize();
+
+    stop = () => {
+      controller.abort();
+      document.documentElement.style.cursor = "";
+    };
+  }
+
+  document.addEventListener("astro:page-load", start);
+  document.addEventListener("astro:before-swap", () => {
+    stop?.();
+    stop = undefined;
+  });
+</script>
