@@ -1,0 +1,266 @@
+---
+// Layout adapted from https://kenneth.io/travel
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// To add a country, put its name in the right region. Counts and the total
+// are computed from here.
+const visitedByRegion: Record<string, string[]> = {
+  Europe: ["France", "Spain"],
+  Asia: ["Türkiye"],
+};
+
+const places = [
+  {
+    city: "Valencia",
+    meta: "Spain · 2026",
+    description: "Where I went to my first PGConf.EU.",
+    href: "/blog/pgconf-2026",
+    image: "/images/travel/valencia.jpg",
+    credit: {
+      text: "Nuriaroche, CC BY-SA 4.0",
+      href: "https://commons.wikimedia.org/wiki/File:Valencia_-_Palacio_de_Congresos.jpg",
+    },
+  },
+  {
+    city: "Reşadiye",
+    meta: "Türkiye · 2026",
+    description: "My family's home village, where I go to reconnect with my second culture.",
+    href: "https://en.wikipedia.org/wiki/Re%C5%9Fadiye,_Sand%C4%B1kl%C4%B1",
+  },
+];
+
+const regions = Object.entries(visitedByRegion);
+const countryCount = regions.reduce((n, [, countries]) => n + countries.length, 0);
+---
+
+<BaseLayout title="Travel" description="Everywhere I've been.">
+  <div class="travel">
+    <header>
+      <h1 class="text-title mb-2">Travel</h1>
+      <p class="intro">Everywhere I've been, and the places that matter to me.</p>
+    </header>
+
+    <section>
+      <h2>Countries</h2>
+      <div class="regions">
+        {
+          regions.map(([region, countries]) => (
+            <div class="region">
+              <h3>
+                {region}
+                <span class="region-count">{countries.length}</span>
+              </h3>
+              <p>{[...countries].sort().join(", ")}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="footnote">
+        {countryCount} countries across {regions.length} regions. Plenty left.
+      </p>
+    </section>
+
+    <section>
+      <h2>Places</h2>
+      <div class="guides-grid">
+        {
+          places.map((place) => (
+            <div>
+              <a
+                class="guide-card"
+                href={place.href}
+                target={place.href.startsWith("http") ? "_blank" : undefined}
+                rel={place.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              >
+                <div class="image-wrapper">
+                  {place.image ? (
+                    <img src={place.image} alt={place.city} width="600" height="450" class="guide-image" />
+                  ) : (
+                    <svg class="image-empty" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  )}
+                </div>
+                <div class="guide-info">
+                  <span class="guide-meta">{place.meta}</span>
+                  <h3 class="guide-name">{place.city}</h3>
+                  <p class="guide-description">{place.description}</p>
+                </div>
+              </a>
+              {place.credit && (
+                <p class="credit">
+                  Photo: <a href={place.credit.href} target="_blank" rel="noopener noreferrer">{place.credit.text}</a>
+                </p>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  header {
+    margin-bottom: 48px;
+  }
+
+  .intro {
+    color: #666;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .guides-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .guide-card {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 22px;
+    align-items: start;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+  }
+
+  .guide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .guide-card:hover .guide-image {
+    transform: scale(1.03);
+  }
+
+  .image-empty {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: #bbb;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .guide-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .guide-meta {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .guide-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: #000;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  .guide-card:hover .guide-name {
+    text-decoration: underline;
+  }
+
+  .guide-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin: 6px 0 0;
+  }
+
+  .credit {
+    font-size: 11px;
+    color: #999;
+    margin: 6px 0 0;
+  }
+
+  .credit a:hover {
+    text-decoration: underline;
+  }
+
+  .regions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 32px;
+  }
+
+  .region h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .region-count {
+    font-size: 12px;
+    color: #bbb;
+    font-weight: normal;
+  }
+
+  .region p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .footnote {
+    font-size: 13px;
+    color: #999;
+    margin: 28px 0 0;
+  }
+
+  @media (max-width: 768px) {
+    .regions {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .guide-card {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+  }
+</style>
