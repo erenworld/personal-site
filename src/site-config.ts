@@ -33,6 +33,16 @@ export const siteConfig = {
       icon: 'user',
     },
   ],
+  footerPageLinks: [
+    {
+      text: 'travel',
+      href: '/travel',
+    },
+    {
+      text: 'reading',
+      href: '/reading',
+    },
+  ],
   footerNavLinks: [
     {
       text: 'github',
