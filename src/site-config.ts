@@ -35,10 +35,6 @@ export const siteConfig = {
   ],
   footerPageLinks: [
     {
-      text: 'travel',
-      href: '/travel',
-    },
-    {
       text: 'reading',
       href: '/reading',
     },
