@@ -8,9 +8,10 @@
     "publishedYear": 2026,
     "url": "https://www.goodreads.com/search?q=The%20Book%20of%20Elon%20Eric%20Jorgenson",
     "description": "Elon Musk’s ideas on building and engineering, collected from his interviews and talks.",
-    "cover": "/images/reading/the-book-of-elon.jpg",
+    "cover": "/images/reading/the-book-of-elon.webp",
     "color": "#d80134",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6452
   },
   {
     "id": "une-sacree-envie-de-foutre-le-bordel",
@@ -21,9 +22,10 @@
     "publishedYear": 2024,
     "url": "https://www.goodreads.com/search?q=Une%20sacr%C3%A9e%20envie%20de%20foutre%20le%20bordel%20Xavier%20Niel",
     "description": "The founder of Free on hacking, the Minitel, and shaking up French telecoms.",
-    "cover": "/images/reading/une-sacree-envie-de-foutre-le-bordel.jpg",
+    "cover": "/images/reading/une-sacree-envie-de-foutre-le-bordel.webp",
     "color": "#ec7522",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6426
   },
   {
     "id": "musk",
@@ -34,9 +36,10 @@
     "publishedYear": 2023,
     "url": "https://www.goodreads.com/search?q=Elon%20Musk%20Walter%20Isaacson",
     "description": "The life of Elon Musk, from Pretoria to Tesla, SpaceX and Twitter.",
-    "cover": "/images/reading/musk.jpg",
+    "cover": "/images/reading/musk.webp",
     "color": "#05050e",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6557
   },
   {
     "id": "shoe-dog",
@@ -47,9 +50,10 @@
     "publishedYear": 2016,
     "url": "https://www.goodreads.com/search?q=Shoe%20Dog%20Phil%20Knight",
     "description": "The founder of Nike tells the story of its early years.",
-    "cover": "/images/reading/shoe-dog.jpg",
+    "cover": "/images/reading/shoe-dog.webp",
     "color": "#0c0c0c",
-    "ink": "#cd8f51"
+    "ink": "#cd8f51",
+    "coverRatio": 0.6612
   },
   {
     "id": "the-almanack-of-naval-ravikant",
@@ -60,9 +64,10 @@
     "publishedYear": 2020,
     "url": "https://www.navalmanack.com/",
     "description": "Naval Ravikant on wealth and happiness, collected from his essays, tweets and podcasts.",
-    "cover": "/images/reading/the-almanack-of-naval-ravikant.jpg",
+    "cover": "/images/reading/the-almanack-of-naval-ravikant.webp",
     "color": "#fefefe",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6478
   },
   {
     "id": "vanderbilt",
@@ -73,9 +78,10 @@
     "publishedYear": 2021,
     "url": "https://www.goodreads.com/search?q=Vanderbilt%20Anderson%20Cooper",
     "description": "The rise and fall of an American dynasty, told by one of its descendants.",
-    "cover": "/images/reading/vanderbilt.jpg",
+    "cover": "/images/reading/vanderbilt.webp",
     "color": "#0c0c0c",
-    "ink": "#ca7072"
+    "ink": "#ca7072",
+    "coverRatio": 0.6584
   },
   {
     "id": "the-first-tycoon",
@@ -86,9 +92,10 @@
     "publishedYear": 2009,
     "url": "https://www.goodreads.com/search?q=The%20First%20Tycoon%20T.%20J.%20Stiles",
     "description": "The life of Cornelius Vanderbilt, from a ferry boat to the railroads.",
-    "cover": "/images/reading/the-first-tycoon.jpg",
+    "cover": "/images/reading/the-first-tycoon.webp",
     "color": "#fcf9ea",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6639
   },
   {
     "id": "sam-walton-made-in-america",
@@ -99,9 +106,10 @@
     "publishedYear": 1992,
     "url": "https://www.goodreads.com/search?q=Made%20in%20America%3A%20My%20Story%20Sam%20Walton",
     "description": "The founder of Walmart on how it grew from a single store.",
-    "cover": "/images/reading/sam-walton-made-in-america.jpg",
+    "cover": "/images/reading/sam-walton-made-in-america.webp",
     "color": "#050404",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.5536
   },
   {
     "id": "leonard-de-vinci",
@@ -112,9 +120,10 @@
     "publishedYear": 2017,
     "url": "https://www.goodreads.com/search?q=Leonardo%20da%20Vinci%20Walter%20Isaacson",
     "description": "A life of Leonardo, built from his notebooks.",
-    "cover": "/images/reading/leonard-de-vinci.jpg",
+    "cover": "/images/reading/leonard-de-vinci.webp",
     "color": "#ecb52c",
-    "ink": "#6e3115"
+    "ink": "#6e3115",
+    "coverRatio": 0.6639
   },
   {
     "id": "la-saga-des-rockefeller",
@@ -149,9 +158,10 @@
     "publishedYear": 2021,
     "url": "https://www.goodreads.com/search?q=Amazon%20Unbound%20Brad%20Stone",
     "description": "How Amazon and Jeff Bezos changed over a decade.",
-    "cover": "/images/reading/amazon-unbound.jpg",
+    "cover": "/images/reading/amazon-unbound.webp",
     "color": "#080808",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.9143
   },
   {
     "id": "on-writing",
@@ -162,9 +172,10 @@
     "publishedYear": 2000,
     "url": "https://www.goodreads.com/search?q=On%20Writing%3A%20A%20Memoir%20of%20the%20Craft%20Stephen%20King",
     "description": "Part memoir, part advice on the craft of writing.",
-    "cover": "/images/reading/on-writing.jpg",
+    "cover": "/images/reading/on-writing.webp",
     "color": "#cdc58e",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6452
   },
   {
     "id": "tools-of-titans",
@@ -175,9 +186,10 @@
     "publishedYear": 2016,
     "url": "https://www.goodreads.com/search?q=Tools%20of%20Titans%20Tim%20Ferriss",
     "description": "Routines and tactics from the guests of Tim Ferriss’s podcast.",
-    "cover": "/images/reading/tools-of-titans.jpg",
+    "cover": "/images/reading/tools-of-titans.webp",
     "color": "#d7352d",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6349
   },
   {
     "id": "lart-invisible",
@@ -188,9 +200,10 @@
     "publishedYear": 1993,
     "url": "https://www.goodreads.com/search?q=L%E2%80%99Art%20invisible%20Scott%20McCloud",
     "description": "A comic book about how comics work.",
-    "cover": "/images/reading/lart-invisible.jpg",
+    "cover": "/images/reading/lart-invisible.webp",
     "color": "#0a090a",
-    "ink": "#97862e"
+    "ink": "#97862e",
+    "coverRatio": 0.6667
   },
   {
     "id": "the-prince",
@@ -201,9 +214,10 @@
     "publishedYear": 1532,
     "url": "https://www.goodreads.com/search?q=The%20Prince%20Niccol%C3%B2%20Machiavelli",
     "description": "A short treatise on how power is won and kept.",
-    "cover": "/images/reading/the-prince.jpg",
+    "cover": "/images/reading/the-prince.webp",
     "color": "#0e0d0f",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6226
   },
   {
     "id": "chess-story",
@@ -214,9 +228,10 @@
     "publishedYear": 1942,
     "url": "https://www.goodreads.com/search?q=Chess%20Story%20Stefan%20Zweig",
     "description": "A chess match on a ship, and the man who learned the game in isolation.",
-    "cover": "/images/reading/chess-story.jpg",
+    "cover": "/images/reading/chess-story.webp",
     "color": "#726952",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6226
   },
   {
     "id": "dune",
@@ -227,9 +242,10 @@
     "publishedYear": 1965,
     "url": "https://www.goodreads.com/search?q=Dune%20Frank%20Herbert",
     "description": "Politics, religion and ecology on the desert planet Arrakis.",
-    "cover": "/images/reading/dune.jpg",
+    "cover": "/images/reading/dune.webp",
     "color": "#c8372b",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.5575
   },
   {
     "id": "les-lecons-de-l-histoire",
@@ -240,9 +256,10 @@
     "publishedYear": 1968,
     "url": "https://www.goodreads.com/search?q=The%20Lessons%20of%20History%20Will%20Durant",
     "description": "What a lifetime of studying civilizations adds up to, in a hundred pages.",
-    "cover": "/images/reading/les-lecons-de-l-histoire.jpg",
+    "cover": "/images/reading/les-lecons-de-l-histoire.webp",
     "color": "#282627",
-    "ink": "#ead24f"
+    "ink": "#ead24f",
+    "coverRatio": 0.6531
   },
   {
     "id": "the-48-laws-of-power",
@@ -253,9 +270,10 @@
     "publishedYear": 1998,
     "url": "https://www.goodreads.com/search?q=The%2048%20Laws%20of%20Power%20Robert%20Greene",
     "description": "Historical stories arranged as rules of power.",
-    "cover": "/images/reading/the-48-laws-of-power.jpg",
+    "cover": "/images/reading/the-48-laws-of-power.webp",
     "color": "#d04621",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6987
   },
   {
     "id": "letters-from-a-stoic",
@@ -265,9 +283,10 @@
     "category": "Philosophy",
     "url": "https://www.goodreads.com/search?q=Letters%20from%20a%20Stoic%20Seneca",
     "description": "Seneca’s letters to his friend Lucilius on how to live.",
-    "cover": "/images/reading/letters-from-a-stoic.jpg",
+    "cover": "/images/reading/letters-from-a-stoic.webp",
     "color": "#100e0c",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6531
   },
   {
     "id": "the-art-of-war",
@@ -277,9 +296,10 @@
     "category": "Philosophy",
     "url": "https://www.goodreads.com/search?q=The%20Art%20of%20War%20Sun%20Tzu",
     "description": "The classic Chinese treatise on strategy.",
-    "cover": "/images/reading/the-art-of-war.jpg",
+    "cover": "/images/reading/the-art-of-war.webp",
     "color": "#1a130f",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6084
   },
   {
     "id": "tao-te-king",
@@ -289,9 +309,10 @@
     "category": "Philosophy",
     "url": "https://www.goodreads.com/search?q=Tao%20Te%20King%20Lao%20Tseu",
     "description": "The founding text of Taoism, in eighty-one short chapters.",
-    "cover": "/images/reading/tao-te-king.jpg",
+    "cover": "/images/reading/tao-te-king.webp",
     "color": "#ba9b6a",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6038
   },
   {
     "id": "code-civil",
@@ -313,9 +334,10 @@
     "category": "Philosophy",
     "url": "https://www.goodreads.com/search?q=The%20Analects%20Confucius",
     "description": "The sayings of Confucius, recorded by his students.",
-    "cover": "/images/reading/the-analects.jpg",
+    "cover": "/images/reading/the-analects.webp",
     "color": "#c96e3b",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6324
   },
   {
     "id": "1984",
@@ -326,9 +348,10 @@
     "publishedYear": 1949,
     "url": "https://www.goodreads.com/search?q=1984%20George%20Orwell",
     "description": "A man tries to think freely in a state that watches everything.",
-    "cover": "/images/reading/1984.jpg",
+    "cover": "/images/reading/1984.webp",
     "color": "#f1f0ed",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6226
   },
   {
     "id": "the-lean-startup",
@@ -339,9 +362,10 @@
     "publishedYear": 2011,
     "url": "https://www.goodreads.com/search?q=The%20Lean%20Startup%20Eric%20Ries",
     "description": "Building a company through small experiments and fast feedback.",
-    "cover": "/images/reading/the-lean-startup.jpg",
+    "cover": "/images/reading/the-lean-startup.webp",
     "color": "#1773b7",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6867
   },
   {
     "id": "anything-you-want",
@@ -352,9 +376,10 @@
     "publishedYear": 2011,
     "url": "https://sive.rs/a",
     "description": "Short lessons from starting, running and selling CD Baby.",
-    "cover": "/images/reading/anything-you-want.jpg",
+    "cover": "/images/reading/anything-you-want.webp",
     "color": "#8f714d",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6926
   },
   {
     "id": "the-e-myth-revisited",
@@ -365,9 +390,10 @@
     "publishedYear": 1995,
     "url": "https://www.goodreads.com/search?q=The%20E-Myth%20Revisited%20Michael%20E.%20Gerber",
     "description": "Why most small businesses fail, and working on the business instead of in it.",
-    "cover": "/images/reading/the-e-myth-revisited.jpg",
+    "cover": "/images/reading/the-e-myth-revisited.webp",
     "color": "#fcfcfc",
-    "ink": "#3666a3"
+    "ink": "#3666a3",
+    "coverRatio": 0.6557
   },
   {
     "id": "the-personal-mba",
@@ -378,9 +404,10 @@
     "publishedYear": 2010,
     "url": "https://www.goodreads.com/search?q=The%20Personal%20MBA%20Josh%20Kaufman",
     "description": "The main ideas of business, without business school.",
-    "cover": "/images/reading/the-personal-mba.jpg",
+    "cover": "/images/reading/the-personal-mba.webp",
     "color": "#d0d3d6",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6531
   },
   {
     "id": "blue-ocean-strategy",
@@ -391,9 +418,10 @@
     "publishedYear": 2005,
     "url": "https://www.goodreads.com/search?q=Blue%20Ocean%20Strategy%20W.%20Chan%20Kim",
     "description": "Creating a new market instead of fighting over an existing one.",
-    "cover": "/images/reading/blue-ocean-strategy.jpg",
+    "cover": "/images/reading/blue-ocean-strategy.webp",
     "color": "#0d356a",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6584
   },
   {
     "id": "high-output-management",
@@ -404,9 +432,10 @@
     "publishedYear": 1983,
     "url": "https://www.goodreads.com/search?q=High%20Output%20Management%20Andrew%20S.%20Grove",
     "description": "Intel’s CEO on meetings, managing and getting more out of a team.",
-    "cover": "/images/reading/high-output-management.jpg",
+    "cover": "/images/reading/high-output-management.webp",
     "color": "#2d48b6",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6324
   },
   {
     "id": "le-management-multiplicateur",
@@ -417,9 +446,10 @@
     "publishedYear": 2010,
     "url": "https://www.goodreads.com/search?q=Multipliers%20Liz%20Wiseman",
     "description": "Why some leaders make the people around them smarter.",
-    "cover": "/images/reading/le-management-multiplicateur.jpg",
+    "cover": "/images/reading/le-management-multiplicateur.webp",
     "color": "#fdd309",
-    "ink": "#06295b"
+    "ink": "#06295b",
+    "coverRatio": 0.6584
   },
   {
     "id": "the-4-hour-workweek",
@@ -430,9 +460,10 @@
     "publishedYear": 2007,
     "url": "https://www.goodreads.com/search?q=The%204-Hour%20Workweek%20Tim%20Ferriss",
     "description": "Automating income and designing a life around free time.",
-    "cover": "/images/reading/the-4-hour-workweek.jpg",
+    "cover": "/images/reading/the-4-hour-workweek.webp",
     "color": "#f59d1c",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6667
   },
   {
     "id": "rework",
@@ -443,9 +474,10 @@
     "publishedYear": 2010,
     "url": "https://www.goodreads.com/search?q=Rework%20Jason%20Fried",
     "description": "The founders of 37signals on building a business with less.",
-    "cover": "/images/reading/rework.jpg",
+    "cover": "/images/reading/rework.webp",
     "color": "#030504",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6639
   },
   {
     "id": "good-to-great",
@@ -456,9 +488,10 @@
     "publishedYear": 2001,
     "url": "https://www.goodreads.com/search?q=Good%20to%20Great%20Jim%20Collins",
     "description": "What separates companies that become great from those that don’t.",
-    "cover": "/images/reading/good-to-great.jpg",
+    "cover": "/images/reading/good-to-great.webp",
     "color": "#f51011",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6584
   },
   {
     "id": "principles-life-and-work",
@@ -469,9 +502,10 @@
     "publishedYear": 2017,
     "url": "https://www.goodreads.com/book/show/34536488-principles",
     "description": "The founder of Bridgewater on the rules he lives and works by.",
-    "cover": "/images/reading/principles-life-and-work.jpg",
+    "cover": "/images/reading/principles-life-and-work.webp",
     "color": "#1b1a1a",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6667
   },
   {
     "id": "zero-to-one",
@@ -482,9 +516,10 @@
     "publishedYear": 2014,
     "url": "https://www.goodreads.com/search?q=Zero%20to%20One%20Peter%20Thiel",
     "description": "Notes on startups and building something new.",
-    "cover": "/images/reading/zero-to-one.jpg",
+    "cover": "/images/reading/zero-to-one.webp",
     "color": "#7091b7",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6639
   },
   {
     "id": "lean-thinking",
@@ -495,9 +530,10 @@
     "publishedYear": 1996,
     "url": "https://www.goodreads.com/search?q=Lean%20Thinking%20James%20P.%20Womack",
     "description": "Cutting waste, with lessons from Toyota.",
-    "cover": "/images/reading/lean-thinking.jpg",
+    "cover": "/images/reading/lean-thinking.webp",
     "color": "#0f080e",
-    "ink": "#ad6b54"
+    "ink": "#ad6b54",
+    "coverRatio": 0.6667
   },
   {
     "id": "your-next-five-moves",
@@ -508,9 +544,10 @@
     "publishedYear": 2020,
     "url": "https://www.goodreads.com/search?q=Your%20Next%20Five%20Moves%20Patrick%20Bet-David",
     "description": "Thinking about business the way a chess player thinks ahead.",
-    "cover": "/images/reading/your-next-five-moves.jpg",
+    "cover": "/images/reading/your-next-five-moves.webp",
     "color": "#02acee",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6557
   },
   {
     "id": "how-to-live",
@@ -521,9 +558,10 @@
     "publishedYear": 2021,
     "url": "https://sive.rs/h",
     "description": "Twenty-seven conflicting answers to one question.",
-    "cover": "/images/reading/how-to-live.jpg",
+    "cover": "/images/reading/how-to-live.webp",
     "color": "#0d6a72",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6275
   },
   {
     "id": "the-power-of-now",
@@ -534,9 +572,10 @@
     "publishedYear": 1997,
     "url": "https://www.goodreads.com/search?q=The%20Power%20of%20Now%20Eckhart%20Tolle",
     "description": "A guide to living in the present.",
-    "cover": "/images/reading/the-power-of-now.jpg",
+    "cover": "/images/reading/the-power-of-now.webp",
     "color": "#8fd08e",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6504
   },
   {
     "id": "the-7-habits-of-highly-effective-people",
@@ -547,9 +586,10 @@
     "publishedYear": 1989,
     "url": "https://www.goodreads.com/search?q=The%207%20Habits%20of%20Highly%20Effective%20People%20Stephen%20R.%20Covey",
     "description": "Principles for being effective, at work and at home.",
-    "cover": "/images/reading/the-7-habits-of-highly-effective-people.jpg",
+    "cover": "/images/reading/the-7-habits-of-highly-effective-people.webp",
     "color": "#f9faf9",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6584
   },
   {
     "id": "mans-search-for-meaning",
@@ -560,9 +600,10 @@
     "publishedYear": 1946,
     "url": "https://www.goodreads.com/search?q=Man%E2%80%99s%20Search%20for%20Meaning%20Viktor%20E.%20Frankl",
     "description": "A psychiatrist’s account of the camps, and what kept people going.",
-    "cover": "/images/reading/mans-search-for-meaning.jpg",
+    "cover": "/images/reading/mans-search-for-meaning.webp",
     "color": "#030302",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6038
   },
   {
     "id": "le-pouvoir-des-habitudes",
@@ -573,9 +614,10 @@
     "publishedYear": 2012,
     "url": "https://www.goodreads.com/search?q=The%20Power%20of%20Habit%20Charles%20Duhigg",
     "description": "How habits form, and how to change them.",
-    "cover": "/images/reading/le-pouvoir-des-habitudes.jpg",
+    "cover": "/images/reading/le-pouvoir-des-habitudes.webp",
     "color": "#fee702",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6426
   },
   {
     "id": "the-subtle-art-of-not-giving-a-fuck",
@@ -586,9 +628,10 @@
     "publishedYear": 2016,
     "url": "https://www.goodreads.com/search?q=The%20Subtle%20Art%20of%20Not%20Giving%20a%20F*ck%20Mark%20Manson",
     "description": "Choosing the few things worth caring about.",
-    "cover": "/images/reading/the-subtle-art-of-not-giving-a-fuck.jpg",
+    "cover": "/images/reading/the-subtle-art-of-not-giving-a-fuck.webp",
     "color": "#f95005",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6695
   },
   {
     "id": "the-one-thing",
@@ -599,9 +642,10 @@
     "publishedYear": 2013,
     "url": "https://www.goodreads.com/search?q=The%20One%20Thing%20Gary%20Keller",
     "description": "Getting more done by focusing on a single priority.",
-    "cover": "/images/reading/the-one-thing.jpg",
+    "cover": "/images/reading/the-one-thing.webp",
     "color": "#fefefe",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6867
   },
   {
     "id": "atomic-habits",
@@ -612,9 +656,10 @@
     "publishedYear": 2018,
     "url": "https://www.goodreads.com/search?q=Atomic%20Habits%20James%20Clear",
     "description": "Small changes that build up over time.",
-    "cover": "/images/reading/atomic-habits.jpg",
+    "cover": "/images/reading/atomic-habits.webp",
     "color": "#efe8e2",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.7373
   },
   {
     "id": "the-obstacle-is-the-way",
@@ -625,9 +670,10 @@
     "publishedYear": 2014,
     "url": "https://www.goodreads.com/search?q=The%20Obstacle%20Is%20the%20Way%20Ryan%20Holiday",
     "description": "Stoic lessons for turning problems into advantages.",
-    "cover": "/images/reading/the-obstacle-is-the-way.jpg",
+    "cover": "/images/reading/the-obstacle-is-the-way.webp",
     "color": "#e5d2cc",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.7111
   },
   {
     "id": "psycho-cybernetics",
@@ -638,9 +684,10 @@
     "publishedYear": 1960,
     "url": "https://www.goodreads.com/search?q=Psycho-Cybernetics%20Maxwell%20Maltz",
     "description": "A surgeon on self-image and why it matters.",
-    "cover": "/images/reading/psycho-cybernetics.jpg",
+    "cover": "/images/reading/psycho-cybernetics.webp",
     "color": "#f8f8f9",
-    "ink": "#cc252d"
+    "ink": "#cc252d",
+    "coverRatio": 0.6667
   },
   {
     "id": "essentialism",
@@ -651,9 +698,10 @@
     "publishedYear": 2014,
     "url": "https://www.goodreads.com/search?q=Essentialism%20Greg%20McKeown",
     "description": "Doing less, but better.",
-    "cover": "/images/reading/essentialism.jpg",
+    "cover": "/images/reading/essentialism.webp",
     "color": "#fdfdfd",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6612
   },
   {
     "id": "steal-like-an-artist",
@@ -664,9 +712,10 @@
     "publishedYear": 2012,
     "url": "https://www.goodreads.com/search?q=Steal%20Like%20an%20Artist%20Austin%20Kleon",
     "description": "Ten pieces of advice on being creative.",
-    "cover": "/images/reading/steal-like-an-artist.jpg",
+    "cover": "/images/reading/steal-like-an-artist.webp",
     "color": "#221e1f",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 1
   },
   {
     "id": "ego-is-the-enemy",
@@ -677,9 +726,10 @@
     "publishedYear": 2016,
     "url": "https://www.goodreads.com/search?q=Ego%20Is%20the%20Enemy%20Ryan%20Holiday",
     "description": "How ego gets in the way, on the way up and on the way down.",
-    "cover": "/images/reading/ego-is-the-enemy.jpg",
+    "cover": "/images/reading/ego-is-the-enemy.webp",
     "color": "#ce1014",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.7339
   },
   {
     "id": "how-to-win-friends-and-influence-people",
@@ -690,9 +740,10 @@
     "publishedYear": 1936,
     "url": "https://www.goodreads.com/search?q=How%20to%20Win%20Friends%20%26%20Influence%20People%20Dale%20Carnegie",
     "description": "The classic on dealing with people. The first book I read by choice.",
-    "cover": "/images/reading/how-to-win-friends-and-influence-people.jpg",
+    "cover": "/images/reading/how-to-win-friends-and-influence-people.webp",
     "color": "#93867a",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6178
   },
   {
     "id": "confessions-of-an-advertising-man",
@@ -703,9 +754,10 @@
     "publishedYear": 1963,
     "url": "https://www.goodreads.com/search?q=Confessions%20of%20an%20Advertising%20Man%20David%20Ogilvy",
     "description": "David Ogilvy on running an agency and writing ads that sell.",
-    "cover": "/images/reading/confessions-of-an-advertising-man.jpg",
+    "cover": "/images/reading/confessions-of-an-advertising-man.webp",
     "color": "#ee4237",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6202
   },
   {
     "id": "fooled-by-randomness",
@@ -716,9 +768,10 @@
     "publishedYear": 2001,
     "url": "https://www.goodreads.com/search?q=Fooled%20by%20Randomness%20Nassim%20Nicholas%20Taleb",
     "description": "The role of luck in markets and in life.",
-    "cover": "/images/reading/fooled-by-randomness.jpg",
+    "cover": "/images/reading/fooled-by-randomness.webp",
     "color": "#4b4ea2",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6639
   },
   {
     "id": "think-and-grow-rich",
@@ -729,9 +782,10 @@
     "publishedYear": 1937,
     "url": "https://www.goodreads.com/search?q=Think%20and%20Grow%20Rich%20Napoleon%20Hill",
     "description": "A 1937 classic on ambition and persistence.",
-    "cover": "/images/reading/think-and-grow-rich.jpg",
+    "cover": "/images/reading/think-and-grow-rich.webp",
     "color": "#fbfaf4",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.7018
   },
   {
     "id": "how-to-talk-to-anyone",
@@ -742,9 +796,10 @@
     "publishedYear": 1999,
     "url": "https://www.goodreads.com/search?q=How%20to%20Talk%20to%20Anyone%20Leil%20Lowndes",
     "description": "Ninety-two small techniques for better conversations.",
-    "cover": "/images/reading/how-to-talk-to-anyone.jpg",
+    "cover": "/images/reading/how-to-talk-to-anyone.webp",
     "color": "#fad926",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6667
   },
   {
     "id": "never-split-the-difference",
@@ -755,9 +810,10 @@
     "publishedYear": 2016,
     "url": "https://www.goodreads.com/search?q=Never%20Split%20the%20Difference%20Chris%20Voss",
     "description": "An FBI hostage negotiator on negotiating.",
-    "cover": "/images/reading/never-split-the-difference.jpg",
+    "cover": "/images/reading/never-split-the-difference.webp",
     "color": "#f9c508",
-    "ink": "#6d1915"
+    "ink": "#6d1915",
+    "coverRatio": 0.6584
   },
   {
     "id": "the-ultimate-sales-machine",
@@ -768,9 +824,10 @@
     "publishedYear": 2007,
     "url": "https://www.goodreads.com/search?q=The%20Ultimate%20Sales%20Machine%20Chet%20Holmes",
     "description": "Twelve strategies for sales, repeated until they work.",
-    "cover": "/images/reading/the-ultimate-sales-machine.jpg",
+    "cover": "/images/reading/the-ultimate-sales-machine.webp",
     "color": "#e11c25",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6324
   },
   {
     "id": "the-black-swan",
@@ -781,9 +838,10 @@
     "publishedYear": 2007,
     "url": "https://www.goodreads.com/search?q=The%20Black%20Swan%20Nassim%20Nicholas%20Taleb",
     "description": "Why rare, unpredictable events matter the most.",
-    "cover": "/images/reading/the-black-swan.jpg",
+    "cover": "/images/reading/the-black-swan.webp",
     "color": "#fcfcfc",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6612
   },
   {
     "id": "rich-dad-poor-dad",
@@ -794,9 +852,10 @@
     "publishedYear": 1997,
     "url": "https://www.goodreads.com/search?q=Rich%20Dad%2C%20Poor%20Dad%20Robert%20T.%20Kiyosaki",
     "description": "Two fathers, two ways of thinking about money.",
-    "cover": "/images/reading/rich-dad-poor-dad.jpg",
+    "cover": "/images/reading/rich-dad-poor-dad.webp",
     "color": "#0d0a0b",
-    "ink": "#f9d408"
+    "ink": "#f9d408",
+    "coverRatio": 0.6667
   },
   {
     "id": "the-big-short",
@@ -807,9 +866,10 @@
     "publishedYear": 2009,
     "url": "https://www.goodreads.com/search?q=The%20Big%20Short%20Michael%20Lewis",
     "description": "The people who saw the 2008 crash coming.",
-    "cover": "/images/reading/the-big-short.jpg",
+    "cover": "/images/reading/the-big-short.webp",
     "color": "#020507",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6639
   },
   {
     "id": "how-to-get-rich",
@@ -820,9 +880,10 @@
     "publishedYear": 2006,
     "url": "https://www.goodreads.com/search?q=How%20to%20Get%20Rich%20Felix%20Dennis",
     "description": "A magazine publisher’s blunt account of making a fortune.",
-    "cover": "/images/reading/how-to-get-rich.jpg",
+    "cover": "/images/reading/how-to-get-rich.webp",
     "color": "#fbfbfa",
-    "ink": "#af0206"
+    "ink": "#af0206",
+    "coverRatio": 0.6178
   },
   {
     "id": "the-richest-man-in-babylon",
@@ -833,9 +894,10 @@
     "publishedYear": 1926,
     "url": "https://www.goodreads.com/search?q=The%20Richest%20Man%20in%20Babylon%20George%20S.%20Clason",
     "description": "Lessons on saving, told as parables.",
-    "cover": "/images/reading/the-richest-man-in-babylon.jpg",
+    "cover": "/images/reading/the-richest-man-in-babylon.webp",
     "color": "#2b292a",
-    "ink": "#ae8b59"
+    "ink": "#ae8b59",
+    "coverRatio": 0.6667
   },
   {
     "id": "confessions-of-a-persuasion-hitman",
@@ -857,9 +919,10 @@
     "publishedYear": 2020,
     "url": "https://www.goodreads.com/search?q=The%20Psychology%20of%20Money%20Morgan%20Housel",
     "description": "Short stories about how people think about money.",
-    "cover": "/images/reading/the-psychology-of-money.jpg",
+    "cover": "/images/reading/the-psychology-of-money.webp",
     "color": "#fcfcfc",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.6375
   },
   {
     "id": "the-millionaire-fastlane",
@@ -870,9 +933,10 @@
     "publishedYear": 2011,
     "url": "https://www.goodreads.com/search?q=The%20Millionaire%20Fastlane%20M.J.%20DeMarco",
     "description": "A case for building a business over saving slowly.",
-    "cover": "/images/reading/the-millionaire-fastlane.jpg",
+    "cover": "/images/reading/the-millionaire-fastlane.webp",
     "color": "#0e1030",
-    "ink": "#d1ac72"
+    "ink": "#d1ac72",
+    "coverRatio": 0.6667
   },
   {
     "id": "influence",
@@ -883,9 +947,10 @@
     "publishedYear": 1983,
     "url": "https://www.goodreads.com/search?q=Influence%3A%20The%20Psychology%20of%20Persuasion%20Robert%20B.%20Cialdini",
     "description": "Why people say yes.",
-    "cover": "/images/reading/influence.jpg",
+    "cover": "/images/reading/influence.webp",
     "color": "#fafaf9",
-    "ink": "#04334c"
+    "ink": "#04334c",
+    "coverRatio": 0.6584
   },
   {
     "id": "sqlite-design",
@@ -908,9 +973,10 @@
     "publishedYear": 2019,
     "url": "https://www.databass.dev/",
     "description": "Storage engines and distributed systems, in depth.",
-    "cover": "/images/reading/database-internals.jpg",
+    "cover": "/images/reading/database-internals.webp",
     "color": "#fdfdfd",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.7619
   },
   {
     "id": "the-art-of-postgresql",
@@ -921,9 +987,10 @@
     "publishedYear": 2019,
     "url": "https://theartofpostgresql.com/",
     "description": "Getting more out of SQL and PostgreSQL.",
-    "cover": "/images/reading/the-art-of-postgresql.jpg",
+    "cover": "/images/reading/the-art-of-postgresql.webp",
     "color": "#362b46",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6809
   },
   {
     "id": "how-query-engines-work",
@@ -946,9 +1013,10 @@
     "publishedYear": 2008,
     "url": "https://www.goodreads.com/search?q=JavaScript%3A%20The%20Good%20Parts%20Douglas%20Crockford",
     "description": "The subset of JavaScript worth using.",
-    "cover": "/images/reading/javascript-the-good-parts.jpg",
+    "cover": "/images/reading/javascript-the-good-parts.webp",
     "color": "#f5f1ee",
-    "ink": "#1d1d1b"
+    "ink": "#1d1d1b",
+    "coverRatio": 0.7512
   },
   {
     "id": "pocket-reference",
@@ -959,9 +1027,10 @@
     "publishedYear": 1989,
     "url": "https://www.goodreads.com/search?q=Pocket%20Reference%20Thomas%20J.%20Glover",
     "description": "Tables, formulas and constants, in a book that fits in a pocket.",
-    "cover": "/images/reading/pocket-reference.jpg",
+    "cover": "/images/reading/pocket-reference.webp",
     "color": "#020202",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6275
   },
   {
     "id": "bulletproof-web-design",
@@ -972,9 +1041,10 @@
     "publishedYear": 2005,
     "url": "https://www.goodreads.com/search?q=Bulletproof%20Web%20Design%20Dan%20Cederholm",
     "description": "Building flexible websites with standards and CSS.",
-    "cover": "/images/reading/bulletproof-web-design.jpg",
+    "cover": "/images/reading/bulletproof-web-design.webp",
     "color": "#2972bb",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.8333
   },
   {
     "id": "poor-charlies-almanack",
@@ -985,9 +1055,10 @@
     "publishedYear": 2005,
     "url": "https://www.goodreads.com/search?q=Poor%20Charlie%E2%80%99s%20Almanack%20Charles%20T.%20Munger",
     "description": "Charlie Munger’s talks and mental models.",
-    "cover": "/images/reading/poor-charlies-almanack.jpg",
+    "cover": "/images/reading/poor-charlies-almanack.webp",
     "color": "#4d6db4",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.9697
   },
   {
     "id": "relentless",
@@ -998,9 +1069,10 @@
     "publishedYear": 2013,
     "url": "https://www.goodreads.com/search?q=Relentless%20Tim%20S.%20Grover",
     "description": "Michael Jordan’s trainer on what it takes to keep winning.",
-    "cover": "/images/reading/relentless.jpg",
+    "cover": "/images/reading/relentless.webp",
     "color": "#070606",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.6531
   },
   {
     "id": "grokking-algorithms",
@@ -1011,9 +1083,10 @@
     "publishedYear": 2015,
     "url": "https://www.goodreads.com/search?q=Grokking%20Algorithms%20Aditya%20Y.%20Bhargava",
     "description": "Algorithms explained with drawings.",
-    "cover": "/images/reading/grokking-algorithms.jpg",
+    "cover": "/images/reading/grokking-algorithms.webp",
     "color": "#10100f",
-    "ink": "#f6f3ec"
+    "ink": "#f6f3ec",
+    "coverRatio": 0.7882
   },
   {
     "id": "the-c-programming-language",
@@ -1024,9 +1097,10 @@
     "publishedYear": 1978,
     "url": "https://www.goodreads.com/search?q=The%20C%20Programming%20Language%20Brian%20W.%20Kernighan",
     "description": "The classic introduction to C, by the people who made it.",
-    "cover": "/images/reading/the-c-programming-language.jpg",
+    "cover": "/images/reading/the-c-programming-language.webp",
     "color": "#fbfcfc",
-    "ink": "#566cc3"
+    "ink": "#566cc3",
+    "coverRatio": 0.6926
   },
   {
     "id": "steve-jobs",
@@ -1037,10 +1111,11 @@
     "publishedYear": 2011,
     "url": "https://www.goodreads.com/search?q=Steve%20Jobs%20Walter%20Isaacson",
     "description": "The life of the founder of Apple.",
-    "cover": "/images/reading/steve-jobs.jpg",
+    "cover": "/images/reading/steve-jobs.webp",
     "color": "#fafafa",
     "ink": "#1d1d1b",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6531
   },
   {
     "id": "titan",
@@ -1051,10 +1126,11 @@
     "publishedYear": 1998,
     "url": "https://www.goodreads.com/search?q=Titan%20Ron%20Chernow",
     "description": "The life of John D. Rockefeller.",
-    "cover": "/images/reading/titan.jpg",
+    "cover": "/images/reading/titan.webp",
     "color": "#968b8c",
     "ink": "#1d1d1b",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6667
   },
   {
     "id": "benjamin-franklin",
@@ -1065,10 +1141,11 @@
     "publishedYear": 2003,
     "url": "https://www.goodreads.com/search?q=Benjamin%20Franklin%3A%20An%20American%20Life%20Walter%20Isaacson",
     "description": "Printer, scientist, diplomat and self-made man.",
-    "cover": "/images/reading/benjamin-franklin.jpg",
+    "cover": "/images/reading/benjamin-franklin.webp",
     "color": "#ffffff",
     "ink": "#04336f",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.9143
   },
   {
     "id": "the-world-of-yesterday",
@@ -1079,10 +1156,11 @@
     "publishedYear": 1942,
     "url": "https://www.goodreads.com/search?q=The%20World%20of%20Yesterday%20Stefan%20Zweig",
     "description": "Zweig remembers the Europe that disappeared.",
-    "cover": "/images/reading/the-world-of-yesterday.jpg",
+    "cover": "/images/reading/the-world-of-yesterday.webp",
     "color": "#585547",
     "ink": "#f6f3ec",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6226
   },
   {
     "id": "founders-at-work",
@@ -1093,10 +1171,11 @@
     "publishedYear": 2007,
     "url": "https://www.goodreads.com/search?q=Founders%20at%20Work%20Jessica%20Livingston",
     "description": "Interviews with founders about their first days.",
-    "cover": "/images/reading/founders-at-work.jpg",
+    "cover": "/images/reading/founders-at-work.webp",
     "color": "#2c2c2b",
     "ink": "#f9ca4b",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6667
   },
   {
     "id": "the-everything-store",
@@ -1107,10 +1186,11 @@
     "publishedYear": 2013,
     "url": "https://www.goodreads.com/search?q=The%20Everything%20Store%20Brad%20Stone",
     "description": "How Jeff Bezos built Amazon.",
-    "cover": "/images/reading/the-everything-store.jpg",
+    "cover": "/images/reading/the-everything-store.webp",
     "color": "#cead84",
     "ink": "#1d1d1b",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6426
   },
   {
     "id": "ddia",
@@ -1121,10 +1201,11 @@
     "publishedYear": 2017,
     "url": "https://dataintensive.net/",
     "description": "The ideas behind reliable and scalable data systems.",
-    "cover": "/images/reading/ddia.jpg",
+    "cover": "/images/reading/ddia.webp",
     "color": "#fcfcfc",
     "ink": "#e41333",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.7619
   },
   {
     "id": "the-rust-programming-language",
@@ -1135,10 +1216,11 @@
     "publishedYear": 2018,
     "url": "https://doc.rust-lang.org/book/",
     "description": "The official book on Rust.",
-    "cover": "/images/reading/the-rust-programming-language.jpg",
+    "cover": "/images/reading/the-rust-programming-language.webp",
     "color": "#faf5bb",
     "ink": "#81322e",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.7583
   },
   {
     "id": "crafting-interpreters",
@@ -1149,10 +1231,11 @@
     "publishedYear": 2021,
     "url": "https://craftinginterpreters.com/",
     "description": "Writing an interpreter from scratch, twice.",
-    "cover": "/images/reading/crafting-interpreters.jpg",
+    "cover": "/images/reading/crafting-interpreters.webp",
     "color": "#efead6",
     "ink": "#1d1d1b",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.8
   },
   {
     "id": "ostep",
@@ -1163,10 +1246,11 @@
     "publishedYear": 2012,
     "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
     "description": "Virtualization, concurrency and persistence.",
-    "cover": "/images/reading/ostep.jpg",
+    "cover": "/images/reading/ostep.webp",
     "color": "#090909",
     "ink": "#f6f3ec",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6667
   },
   {
     "id": "csapp",
@@ -1177,10 +1261,11 @@
     "publishedYear": 2002,
     "url": "https://www.goodreads.com/search?q=Computer%20Systems%3A%20A%20Programmer%E2%80%99s%20Perspective%20Randal%20E.%20Bryant",
     "description": "How computers work, seen from a program.",
-    "cover": "/images/reading/csapp.jpg",
+    "cover": "/images/reading/csapp.webp",
     "color": "#151414",
     "ink": "#adc54c",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.7512
   },
   {
     "id": "sql-performance-explained",
@@ -1191,10 +1276,11 @@
     "publishedYear": 2012,
     "url": "https://use-the-index-luke.com/",
     "description": "Everything developers need to know about indexes.",
-    "cover": "/images/reading/sql-performance-explained.jpg",
+    "cover": "/images/reading/sql-performance-explained.webp",
     "color": "#fdfdfd",
     "ink": "#0f5898",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6531
   },
   {
     "id": "coders-at-work",
@@ -1205,10 +1291,11 @@
     "publishedYear": 2009,
     "url": "https://www.goodreads.com/search?q=Coders%20at%20Work%20Peter%20Seibel",
     "description": "Long interviews with great programmers.",
-    "cover": "/images/reading/coders-at-work.jpg",
+    "cover": "/images/reading/coders-at-work.webp",
     "color": "#6e2968",
     "ink": "#fec827",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6667
   },
   {
     "id": "deep-work",
@@ -1219,10 +1306,11 @@
     "publishedYear": 2016,
     "url": "https://www.goodreads.com/search?q=Deep%20Work%20Cal%20Newport",
     "description": "Focusing without distraction.",
-    "cover": "/images/reading/deep-work.jpg",
+    "cover": "/images/reading/deep-work.webp",
     "color": "#161719",
     "ink": "#cc9030",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6612
   },
   {
     "id": "talk-like-ted",
@@ -1233,10 +1321,11 @@
     "publishedYear": 2014,
     "url": "https://www.goodreads.com/search?q=Talk%20Like%20TED%20Carmine%20Gallo",
     "description": "What good speakers do on stage.",
-    "cover": "/images/reading/talk-like-ted.jpg",
+    "cover": "/images/reading/talk-like-ted.webp",
     "color": "#b5b5b1",
     "ink": "#720e12",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6452
   },
   {
     "id": "meditations",
@@ -1246,10 +1335,11 @@
     "category": "Philosophy",
     "url": "https://www.goodreads.com/search?q=Meditations%20Marcus%20Aurelius",
     "description": "Private notes of a Roman emperor.",
-    "cover": "/images/reading/meditations.jpg",
+    "cover": "/images/reading/meditations.webp",
     "color": "#040708",
     "ink": "#f6f3ec",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.64
   },
   {
     "id": "walden",
@@ -1260,10 +1350,11 @@
     "publishedYear": 1854,
     "url": "https://www.goodreads.com/search?q=Walden%20Henry%20David%20Thoreau",
     "description": "Two years in a cabin in the woods.",
-    "cover": "/images/reading/walden.jpg",
+    "cover": "/images/reading/walden.webp",
     "color": "#737589",
     "ink": "#f6f3ec",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6202
   },
   {
     "id": "my-name-is-red",
@@ -1274,10 +1365,11 @@
     "publishedYear": 1998,
     "url": "https://www.goodreads.com/search?q=My%20Name%20Is%20Red%20Orhan%20Pamuk",
     "description": "A murder among the miniaturists of Istanbul.",
-    "cover": "/images/reading/my-name-is-red.jpg",
+    "cover": "/images/reading/my-name-is-red.webp",
     "color": "#510505",
     "ink": "#d6aa2f",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6324
   },
   {
     "id": "madonna-in-a-fur-coat",
@@ -1301,10 +1393,11 @@
     "publishedYear": 2020,
     "url": "https://www.goodreads.com/search?q=Time%20Shelter%20Georgi%20Gospodinov",
     "description": "A clinic where each floor recreates a decade, by a Bulgarian novelist.",
-    "cover": "/images/reading/time-shelter.jpg",
+    "cover": "/images/reading/time-shelter.webp",
     "color": "#4b6c90",
     "ink": "#f6f3ec",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6531
   },
   {
     "id": "the-stranger",
@@ -1315,9 +1408,10 @@
     "publishedYear": 1942,
     "url": "https://www.goodreads.com/search?q=The%20Stranger%20Albert%20Camus",
     "description": "A man, a beach, and a trial.",
-    "cover": "/images/reading/the-stranger.jpg",
+    "cover": "/images/reading/the-stranger.webp",
     "color": "#18264d",
     "ink": "#d3ad53",
-    "suggested": true
+    "suggested": true,
+    "coverRatio": 0.6299
   }
 ]

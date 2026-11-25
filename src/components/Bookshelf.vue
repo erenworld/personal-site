@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 // Layout and shelf drawing adapted from https://kenneth.io/reading
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import reading from '../data/reading.json'
 
 type Entry = {
   id: string; title: string; author: string; type: string; category: string; url: string;
-  description: string; color: string; ink: string; publishedYear?: number; cover?: string; suggested?: boolean;
+  description: string; color: string; ink: string; publishedYear?: number; cover?: string; coverRatio?: number; suggested?: boolean;
 }
 type Part = { t?: string; parts?: string[][]; fs?: number; weight?: number; track?: string; color?: string; font?: string }
 type Spine = {
@@ -127,6 +127,21 @@ const textStyle = (part: Part) => ({
 const selectedId = ref<string | null>(null)
 const selected = computed(() => shelfOrder.find(entry => entry.id === selectedId.value))
 const bookNodes: Record<string, HTMLElement> = {}
+
+// Fetch and decode every cover ahead of the first click, so details open with no visible
+// loading. Kept referenced so the browser doesn't drop the decoded images.
+const preloaded: HTMLImageElement[] = []
+onMounted(() => {
+  for (const { cover } of shelfOrder) {
+    if (!cover)
+      continue
+    const image = new Image()
+    image.fetchPriority = 'low'
+    image.src = cover
+    image.decode().catch(() => {})
+    preloaded.push(image)
+  }
+})
 
 function toggle(id: string) {
   selectedId.value = selectedId.value === id ? null : id
@@ -308,7 +323,7 @@ function onBookKeydown(event: KeyboardEvent, id: string) {
             <path d="M2 2 L10 10 M10 2 L2 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
           </svg>
         </button>
-        <span v-if="selected.cover" class="cover"><img :src="selected.cover" :alt="`${selected.title} cover`"></span>
+        <span v-if="selected.cover" class="cover"><img :key="selected.id" :src="selected.cover" :style="{ aspectRatio: selected.coverRatio }" decoding="sync" :alt="`${selected.title} cover`"></span>
         <span v-else class="cover cover-blank" :style="{ background: selected.color, color: selected.ink }" aria-hidden="true">{{ selected.title }}</span>
         <div>
           <p class="eyebrow">{{ selected.author }}</p>
